@@ -21,4 +21,8 @@ export class HeaderComponent {
       return false;
     }
   }
+
+  logOut() {
+    localStorage.removeItem("jwt");
+  }
 }  

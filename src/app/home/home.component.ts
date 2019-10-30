@@ -11,18 +11,19 @@ export class HomeComponent {
 
   constructor(private jwtHelper: JwtHelper, private router: Router) {
   }
+  
 
   isUserAuthenticated() {
     let token: string = localStorage.getItem("jwt");
-    if (token && !this.jwtHelper.isTokenExpired(token)) {
+    if (token && !this.jwtHelper.isTokenExpired(token)) {      
       return true;
     }
-    else {
+    else {      
       return false;
     }
   }
 
-  logOut() {
+  logOut() {    
     localStorage.removeItem("jwt");
   }
 

@@ -1,15 +1,14 @@
 <header-app></header-app>
 <h1>Home Page</h1>
-
+<div *ngIf="!isUserAuthenticated()" style="color:black;">
+  <h1>Вы вошли как Анонимный пользователь</h1>
+</div>
 <br>
-<div *ngIf="isUserAuthenticated()" style="color:blue;">
+<div *ngIf="isUserAuthenticated()" style="color:black;">
   <h2>
-    YOU ARE LOGGED IN
+    <app-customers></app-customers>
   </h2>
 </div>
 
 <br>
-<ul>
-  <li><a routerLink="/customers">Customer</a></li>  
-  <li *ngIf="isUserAuthenticated()"><a class="logout" (click)="logOut()">Logout</a></li>
-</ul>
+

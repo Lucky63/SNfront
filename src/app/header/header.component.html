@@ -1,3 +1,4 @@
 <h1>{{header}}</h1>
-<li *ngIf="!isUserAuthenticated()"><a routerLink="/login">Login</a></li>
-<li *ngIf="!isUserAuthenticated()"><a routerLink="/registr">Registr</a></li>
+<button *ngIf="!isUserAuthenticated()" routerLink="/login">Авторизация</button>
+<button *ngIf="!isUserAuthenticated()" routerLink="/registr">Зарегистрироваться</button>
+<button *ngIf="isUserAuthenticated()" class="logout" (click)="logOut()">Logout</button>
