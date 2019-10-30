@@ -12,14 +12,14 @@ import { LoginComponent } from 'app/login/login.component';
 import { CustomersComponent } from 'app/customers/customers.component';
 import { AppComponent } from './app/app.component';
 import { RegistrComponent } from 'app/registr/registr.component';
+import { HeaderComponent } from 'app/header/header.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     LoginComponent,
     CustomersComponent,
-    AppComponent, RegistrComponent,
-  ],
+    AppComponent, RegistrComponent, HeaderComponent,],
   imports: [
     BrowserModule,
     FormsModule,
