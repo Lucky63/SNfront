@@ -1,4 +1,8 @@
-<h1>Вы вошли как:</h1>
-<ul>
-  <li *ngFor="let cust of customers">{{ cust }}</li>
-</ul>
+
+<div *ngIf="user">
+  <strong>Вы вошли как:  <ins>{{user.userName}}</ins> </strong>
+</div>
+<div *ngIf="user">
+  <strong>Ваша фамилия:  <ins>{{user.lastName}}</ins> </strong>
+</div>
+

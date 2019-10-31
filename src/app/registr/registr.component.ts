@@ -5,7 +5,8 @@ import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'registr',
-  templateUrl: './registr.component.html'
+  templateUrl: './registr.component.html',
+  styleUrls: ['./registr.component.css']
 })
 export class RegistrComponent {
   invalidLogin: boolean;

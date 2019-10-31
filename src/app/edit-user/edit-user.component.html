@@ -1,3 +1,4 @@
+<header-app></header-app>
 <body>
   <form class="form-signin" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
     <div class="container-fluid" *ngIf="user">
@@ -15,6 +16,7 @@
       <br />
 
       <button class="btn btn-lg btn-primary btn-block" type="submit">Edit</button>
+      <button routerLink="/">На главную</button>
     </div>
   </form>
 </body>
