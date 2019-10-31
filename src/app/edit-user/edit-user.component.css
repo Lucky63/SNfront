@@ -1,0 +1,16 @@
+body {
+  background: #808080; /*цвет фона*/
+  /*color: #ffffff; /* Цвет текста */
+  /*width: 500px;*/
+  /*padding: 100px;*/ /* Поля вокруг текста */
+  /*margin: 0;*/ /* Убираем отступы */
+  /*text-align: right;*/
+  /*font-size: 50%;*/ /*Размер шрифта*/
+  font-style: italic; /* Курсивное начертание */
+  font-weight:900; /*Жирный шрифт*/ 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}
