@@ -14,7 +14,7 @@ export class EditUserComponent implements OnInit {
   user: User;
   invalidLogin: boolean;
   ngOnInit() {   
-      let token = localStorage.getItem("jwt");
+    let token = localStorage.getItem("jwt");
     this.http.get("http://localhost:5000/api/user/getuser",
       {
         headers: new HttpHeaders({
@@ -30,7 +30,8 @@ export class EditUserComponent implements OnInit {
 
   login(form: NgForm) {
     let user = JSON.stringify(form.value);
-    this.http.put("http://localhost:5000/api/user/edit", user, {
+    this.http.put("http://localhost:5000/api/user/edit", user,
+      {
       headers: new HttpHeaders({
         "Content-Type": "application/json"
       })

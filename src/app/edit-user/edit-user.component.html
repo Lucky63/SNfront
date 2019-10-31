@@ -4,14 +4,16 @@
     <div *ngIf="invalidLogin" class="alert alert-danger">Invalid username or password.</div>
     <br />
     
+    <input type="number" [(ngModel)]="user.id" id="id" name="id" ngModel class="form-control" placeholder="id" required>
+    <br />
     <label for="username" class="sr-only">Login</label>
-    <input type="text" id="user.username" name="username" ngModel class="form-control" placeholder="User Name" required autofocus>
+    <input type="text" [(ngModel)]="user.userName" id="username" name="username" ngModel class="form-control" placeholder="User Name" required autofocus>
     <br />
     <label for="lastname" class="sr-only">LastName</label>
-    <input type="text" id="user.lastname" name="lastname" ngModel class="form-control" placeholder="LastName" required>
+    <input type="text" [(ngModel)]="user.lastName" id="lastname" name="lastname" ngModel class="form-control" placeholder="LastName" required>
     <br />
     <label for="password" class="sr-only">Password</label>
-    <input type="password" id="user.password" name="password" ngModel class="form-control" placeholder="Password" required>
+    <input type="password" [(ngModel)]="user.password" id="password" name="password" ngModel class="form-control" placeholder="Password" required>
     <br />
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
   </div>
