@@ -15,13 +15,14 @@ import { RegistrComponent } from 'app/registr/registr.component';
 import { HeaderComponent } from 'app/header/header.component';
 import { EditUserComponent } from 'app/edit-user/Edit-User.Component';
 import { UserFormComponent } from 'app/user-form/user-form.Component';
+import { AllUsersComponent } from 'app/all-users/all-users.Component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     LoginComponent,
     CustomersComponent,
-    AppComponent, RegistrComponent, HeaderComponent, EditUserComponent, UserFormComponent],
+    AppComponent, RegistrComponent, HeaderComponent, EditUserComponent, UserFormComponent, AllUsersComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -32,6 +33,7 @@ import { UserFormComponent } from 'app/user-form/user-form.Component';
       { path: 'customers', component: CustomersComponent, canActivate: [AuthGuard] },
       { path: 'registr', component: RegistrComponent },
       { path: 'edit', component: EditUserComponent },
+      { path: 'allusers', component: AllUsersComponent },
     ])
   ],
   providers: [JwtHelper, AuthGuard],

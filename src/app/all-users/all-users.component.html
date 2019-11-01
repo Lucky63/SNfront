@@ -1,0 +1,15 @@
+<h4><b>Список всех Пользователей</b></h4>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Имя</th>
+      <th>Фамилия</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of users">
+      <td>{{p?.userName}}</td>
+      <td>{{p?.lastName}}</td>      
+    </tr>
+  </tbody>
+</table>

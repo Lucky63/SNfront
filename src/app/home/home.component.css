@@ -1,0 +1,16 @@
+body {
+  position: fixed;
+  top: 155px;
+  right: -150px;
+  width: 500px;
+}
+button {
+  background: #808080; /* Цвет фона под заголовком */
+  color: #000000; /* Цвет текста */
+  padding: 10px; /* Поля вокруг текста */
+  margin: 0; /* Убираем отступы */
+  /*text-align: center;*/
+  font-size: 100%; /*Размер шрифта*/
+  font-style: normal; /* Курсивное начертание */
+  font-weight: 900; /*Жирный шрифт*/
+}
