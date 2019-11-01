@@ -4,12 +4,14 @@
     <tr>
       <th>Имя</th>
       <th>Фамилия</th>
+      <th>Добавить в друзья</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let p of users">
       <td>{{p?.userName}}</td>
-      <td>{{p?.lastName}}</td>      
+      <td>{{p?.lastName}}</td>
+      <td><a [routerLink]="['addfriends', p.id]" class="btn btn-sm btn-primary">В друзья</a></td>
     </tr>
   </tbody>
 </table>
