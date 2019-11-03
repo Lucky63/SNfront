@@ -18,7 +18,7 @@ export class DeleteFriendsComponent implements OnInit {
 
   ngOnInit() {
     let token = localStorage.getItem("jwt");
-    this.http.get(`http://localhost:5000/api/user/deletefriend/${this.id}`,
+    this.http.delete(`http://localhost:5000/api/user/deletefriend/${this.id}`,
       {
         headers: new HttpHeaders({
           "Authorization": "Bearer " + token,

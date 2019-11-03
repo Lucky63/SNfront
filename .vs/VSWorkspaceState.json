@@ -3,13 +3,14 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\add-friend",
     "\\src\\app\\all-users",
     "\\src\\app\\customers",
+    "\\src\\app\\delete-friends",
     "\\src\\app\\edit-user",
+    "\\src\\app\\friends-list",
     "\\src\\app\\header",
     "\\src\\app\\home"
   ],
-  "SelectedNode": "\\src\\app\\user-form",
+  "SelectedNode": "\\src\\app\\all-users\\all-users.component.ts",
   "PreviewInSolutionExplorer": false
 }
