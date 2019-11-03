@@ -1,12 +1,15 @@
-import { Friends } from "./friends";
+import { User } from "./user";
 
-export class User {
+export class Friends {
   constructor(
+    public friendId?: number,
+    public userId?: number,
+    
     public id?: number,
     public userName?: string,
     public password?: string,
     public lastName?: string,
-    public friends?: Friends[],
+    
   ) { }
-  
+
 }

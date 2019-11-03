@@ -5,4 +5,10 @@
 <div *ngIf="user">
   <strong>Ваша фамилия:  <ins>{{user.lastName}}</ins> </strong>
 </div>
-
+<div *ngIf="user">
+  <select class="form-control">
+    <option *ngFor="let c of  user.friends">
+      {{c.userName}}
+    </option>
+  </select>
+</div>

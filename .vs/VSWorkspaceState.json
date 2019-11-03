@@ -3,11 +3,13 @@
     "",
     "\\src",
     "\\src\\app",
+    "\\src\\app\\add-friend",
     "\\src\\app\\all-users",
     "\\src\\app\\customers",
+    "\\src\\app\\edit-user",
     "\\src\\app\\header",
     "\\src\\app\\home"
   ],
-  "SelectedNode": "\\src\\app\\home\\home.component.css",
+  "SelectedNode": "\\src\\app\\user-form",
   "PreviewInSolutionExplorer": false
 }

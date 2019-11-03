@@ -18,15 +18,7 @@ export class AddFriendComponent implements OnInit {
     this.id = Number.parseInt(activeRoute.snapshot.params["id"]);
   }
 
-  ngOnInit() {
-    //if (this.id)
-    //  this.dataService.getProduct(this.id)
-    //    .subscribe((data: Product) => {
-    //      this.product = data;
-    //      if (this.product != null) this.loaded = true;
-    //    });
-
-
+  ngOnInit() {    
     let token = localStorage.getItem("jwt");
     this.http.get(`http://localhost:5000/api/user/getfriend/${this.id}`,
       {
