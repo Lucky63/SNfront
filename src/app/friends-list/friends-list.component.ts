@@ -9,7 +9,7 @@ import { User } from 'app/user';
 })
 export class FriendsListComponent implements OnInit {
   user: User;
-
+  
   constructor(private http: HttpClient) { }
 
   ngOnInit() {

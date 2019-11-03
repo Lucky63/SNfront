@@ -5,12 +5,14 @@
       <tr>
         <th>Имя</th>
         <th>Фамилия</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let p of user.friends">
         <td>{{p?.userName}}</td>
         <td>{{p?.lastName}}</td>
+        <td><a [routerLink]="['delfriend', p.id]" class="btn btn-sm btn-primary">Удалить</a></td>
       </tr>
     </tbody>
   </table>

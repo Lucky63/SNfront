@@ -18,6 +18,7 @@ import { UserFormComponent } from 'app/user-form/user-form.Component';
 import { AllUsersComponent } from 'app/all-users/all-users.Component';
 import { AddFriendComponent } from 'app/add-friend/add-friend.Component';
 import { FriendsListComponent } from 'app/friends-list/friends-list.Component';
+import { DeleteFriendsComponent } from 'app/delete-friends/delete-friends.Component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { FriendsListComponent } from 'app/friends-list/friends-list.Component';
     LoginComponent,
     CustomersComponent,
     AppComponent, RegistrComponent, HeaderComponent, EditUserComponent, UserFormComponent,
-    AllUsersComponent, AddFriendComponent, FriendsListComponent],
+    AllUsersComponent, AddFriendComponent, FriendsListComponent, DeleteFriendsComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -39,6 +40,7 @@ import { FriendsListComponent } from 'app/friends-list/friends-list.Component';
       { path: 'allusers', component: AllUsersComponent },
       { path: 'addfriends/:id', component: AddFriendComponent },
       { path: 'friendslist', component: FriendsListComponent },
+      { path: 'friendslist/delfriend/:id', component: DeleteFriendsComponent },
     ])
   ],
   providers: [JwtHelper, AuthGuard],
