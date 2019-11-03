@@ -1,0 +1,17 @@
+<h4><b>Друзья</b></h4>
+<div *ngIf="user">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Имя</th>
+        <th>Фамилия</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of user.friends">
+        <td>{{p?.userName}}</td>
+        <td>{{p?.lastName}}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>

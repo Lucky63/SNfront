@@ -17,13 +17,15 @@ import { EditUserComponent } from 'app/edit-user/Edit-User.Component';
 import { UserFormComponent } from 'app/user-form/user-form.Component';
 import { AllUsersComponent } from 'app/all-users/all-users.Component';
 import { AddFriendComponent } from 'app/add-friend/add-friend.Component';
+import { FriendsListComponent } from 'app/friends-list/friends-list.Component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     LoginComponent,
     CustomersComponent,
-    AppComponent, RegistrComponent, HeaderComponent, EditUserComponent, UserFormComponent, AllUsersComponent, AddFriendComponent],
+    AppComponent, RegistrComponent, HeaderComponent, EditUserComponent, UserFormComponent,
+    AllUsersComponent, AddFriendComponent, FriendsListComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -36,6 +38,7 @@ import { AddFriendComponent } from 'app/add-friend/add-friend.Component';
       { path: 'edit', component: EditUserComponent },
       { path: 'allusers', component: AllUsersComponent },
       { path: 'addfriends/:id', component: AddFriendComponent },
+      { path: 'friendslist', component: FriendsListComponent },
     ])
   ],
   providers: [JwtHelper, AuthGuard],
