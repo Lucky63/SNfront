@@ -3,7 +3,7 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\all-users",
+    "\\src\\app\\add-friend",
     "\\src\\app\\customers",
     "\\src\\app\\delete-friends",
     "\\src\\app\\edit-user",
@@ -11,6 +11,6 @@
     "\\src\\app\\header",
     "\\src\\app\\home"
   ],
-  "SelectedNode": "\\src\\app\\all-users\\all-users.component.ts",
+  "SelectedNode": "\\src\\app\\add-friend\\add-friend.component.ts",
   "PreviewInSolutionExplorer": false
 }

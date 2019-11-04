@@ -26,23 +26,9 @@ export class AddFriendComponent implements OnInit {
           "Authorization": "Bearer " + token,
           "Content-Type": "application/json"
         })
-      }).subscribe((response: User) => {
-        this.user = response;
-      }, err => {
-        console.log(err)
-        });
-    
+      }).subscribe(data => this.router.navigateByUrl("/"))  
   }
-  save() {
-    let token = localStorage.getItem("jwt");
-    this.http.post("http://localhost:5000/api/user/addfriend", this.user,
-      {
-        headers: new HttpHeaders({
-          "Authorization": "Bearer " + token,
-          "Content-Type": "application/json"
-        })
-      }).subscribe(data => this.router.navigateByUrl("/"))
-  }
+
 
   
 }
