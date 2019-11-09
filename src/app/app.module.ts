@@ -19,6 +19,7 @@ import { AllUsersComponent } from 'app/all-users/all-users.Component';
 import { AddFriendComponent } from 'app/add-friend/add-friend.Component';
 import { FriendsListComponent } from 'app/friends-list/friends-list.Component';
 import { DeleteFriendsComponent } from 'app/delete-friends/delete-friends.Component';
+import { ChatComponent } from 'app/chat/chat.Component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { DeleteFriendsComponent } from 'app/delete-friends/delete-friends.Compon
     LoginComponent,
     CustomersComponent,
     AppComponent, RegistrComponent, HeaderComponent, EditUserComponent, UserFormComponent,
-    AllUsersComponent, AddFriendComponent, FriendsListComponent, DeleteFriendsComponent],
+    AllUsersComponent, AddFriendComponent, FriendsListComponent, DeleteFriendsComponent, ChatComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -41,6 +42,7 @@ import { DeleteFriendsComponent } from 'app/delete-friends/delete-friends.Compon
       { path: 'addfriends/:id', component: AddFriendComponent },
       { path: 'friendslist', component: FriendsListComponent },
       { path: 'friendslist/delfriend/:id', component: DeleteFriendsComponent },
+      { path: 'chat', component: ChatComponent },
     ])
   ],
   providers: [JwtHelper, AuthGuard],
