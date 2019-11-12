@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HubConnection, HubConnectionBuilder } from '@aspnet/signalr';
 import * as signalR from '@aspnet/signalr';
 
@@ -12,6 +13,8 @@ export class ChatComponent implements OnInit {
   message = '';
   messages: string[] = [];
 
+  constructor(private http: HttpClient) { }
+
   public sendMessage(): void {
     this._hubConnection
       .invoke('sendToAll', this.nick, this.message)
@@ -21,11 +24,12 @@ export class ChatComponent implements OnInit {
   ngOnInit() {
 
     //this.nick = window.prompt('Your name:', 'John');
-
+    let token = localStorage.getItem("jwt");
+    
     let hubUrl = 'http://localhost:5000/chat';
     this._hubConnection = new signalR.HubConnectionBuilder()
-      .withUrl(hubUrl)
-      .configureLogging(signalR.LogLevel.Information)
+      .withUrl(hubUrl, { accessTokenFactory: () => token })
+      
       .build();
 
     this._hubConnection
