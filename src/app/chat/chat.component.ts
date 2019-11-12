@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HubConnection, HubConnectionBuilder } from '@aspnet/signalr';
 import * as signalR from '@aspnet/signalr';
+import { User } from 'app/user';
 
 @Component({
   selector: 'app-chat',
@@ -9,15 +10,17 @@ import * as signalR from '@aspnet/signalr';
 })
 export class ChatComponent implements OnInit {
   private _hubConnection: HubConnection;
-  nick = '';
+  user: User;
+ 
   message = '';
   messages: string[] = [];
-
+  
+  
   constructor(private http: HttpClient) { }
 
   public sendMessage(): void {
     this._hubConnection
-      .invoke('sendToAll', this.nick, this.message)
+      .invoke('sendToAll', this.user.userName, this.message)
       .then(() => this.message = '')
       .catch(err => console.error(err));
   }
@@ -25,7 +28,18 @@ export class ChatComponent implements OnInit {
 
     //this.nick = window.prompt('Your name:', 'John');
     let token = localStorage.getItem("jwt");
-    
+
+    this.http.get("http://localhost:5000/api/customers/getidenti", {
+      headers: new HttpHeaders({
+        "Authorization": "Bearer " + token,
+        "Content-Type": "application/json"
+      })
+    }).subscribe((response: User) => {
+      this.user = response;
+    }, err => {
+      console.log(err)
+    });
+
     let hubUrl = 'http://localhost:5000/chat';
     this._hubConnection = new signalR.HubConnectionBuilder()
       .withUrl(hubUrl, { accessTokenFactory: () => token })

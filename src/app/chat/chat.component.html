@@ -2,7 +2,7 @@
 
 
   <div class="container">
-    <h2>Hello {{nick}}!</h2>
+    <h2 *ngIf="user">Hello {{user.userName}}!</h2>
     <form (ngSubmit)="sendMessage()" #chatForm="ngForm">
       <div>
         <label for="message">Message</label>
