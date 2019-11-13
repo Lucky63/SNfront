@@ -9,6 +9,7 @@
         <th>Имя</th>
         <th>Фамилия</th>
         <th></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -16,6 +17,7 @@
         <td>{{p?.userName}}</td>
         <td>{{p?.lastName}}</td>
         <td><a [routerLink]="['delfriend', p.id]" class="btn btn-sm btn-primary">Удалить</a></td>
+        <td><a [routerLink]="['chat', p.id]" class="btn btn-sm btn-primary">Сообщение</a></td>
       </tr>
     </tbody>
   </table>

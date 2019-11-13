@@ -37,13 +37,8 @@ export class ChatComponent implements OnInit {
     let token = localStorage.getItem("jwt");
 
     //Получаем юзера, которому отправляем сообщение
-    this.http.get(`http://localhost:5000/api/user/getuserformessage/${this.id}`,
-      {
-        headers: new HttpHeaders({
-          "Authorization": "Bearer " + token,
-          "Content-Type": "application/json"
-        })
-      }).subscribe((response: User) => {
+    this.http.get(`http://localhost:5000/api/user/getuserformessage/${this.id}`
+     ).subscribe((response: User) => {
         this.userForMessage = response;
       }, err => {
         console.log(err)

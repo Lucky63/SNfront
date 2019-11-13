@@ -42,7 +42,7 @@ import { ChatComponent } from 'app/chat/chat.Component';
       { path: 'addfriends/:id', component: AddFriendComponent },
       { path: 'friendslist', component: FriendsListComponent },
       { path: 'friendslist/delfriend/:id', component: DeleteFriendsComponent },
-      { path: 'chat/:id', component: ChatComponent },
+      { path: 'friendslist/chat/:id', component: ChatComponent },
     ])
   ],
   providers: [JwtHelper, AuthGuard],
