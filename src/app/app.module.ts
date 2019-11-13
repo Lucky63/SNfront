@@ -39,7 +39,7 @@ import { ChatComponent } from 'app/chat/chat.Component';
       { path: 'registr', component: RegistrComponent },
       { path: 'edit', component: EditUserComponent },
       { path: 'allusers', component: AllUsersComponent },
-      { path: 'addfriends/:id', component: AddFriendComponent },
+      { path: 'allusers/addfriends/:id', component: AddFriendComponent },
       { path: 'friendslist', component: FriendsListComponent },
       { path: 'friendslist/delfriend/:id', component: DeleteFriendsComponent },
       { path: 'friendslist/chat/:id', component: ChatComponent },

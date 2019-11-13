@@ -1,6 +1,9 @@
-<h1>{{header}}</h1>
-<button *ngIf="!isUserAuthenticated()" routerLink="/login">Авторизация</button>
-<button *ngIf="!isUserAuthenticated()" routerLink="/registr">Зарегистрироваться</button>
-<button *ngIf="isUserAuthenticated()" class="logout" (click)="logOut()">Logout</button>
-<button *ngIf="isUserAuthenticated()" routerLink="/edit">EDIT</button>
-<button routerLink="/chat">Chat</button>
+<h1>{{header}}
+  <h6>
+    <button *ngIf="!isUserAuthenticated()" routerLink="/login">Авторизация</button>
+    <button *ngIf="!isUserAuthenticated()" routerLink="/registr">Зарегистрироваться</button>
+    <button *ngIf="isUserAuthenticated()" class="logout" (click)="logOut()">Logout</button>
+    <button *ngIf="isUserAuthenticated()" routerLink="/edit">EDIT</button>    
+  </h6>
+  </h1>
+
