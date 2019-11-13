@@ -11,7 +11,7 @@ import { NgForm } from '@angular/forms';
 })
 export class EditUserComponent implements OnInit {  
   
-  constructor(private router: Router, activeRoute: ActivatedRoute, public http: HttpClient,) {}
+  constructor(private router: Router, public http: HttpClient,) {}
   user: User;
   invalidLogin: boolean;
   ngOnInit() {   

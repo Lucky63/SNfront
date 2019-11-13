@@ -11,12 +11,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ChatComponent implements OnInit {
   constructor(private http: HttpClient, activeRoute: ActivatedRoute) {
-    //this.id = Number.parseInt(activeRoute.snapshot.params["id"]);
+    this.id = Number.parseInt(activeRoute.snapshot.params["id"]);
   }
 
   private _hubConnection: HubConnection;
   user: User;
-  id: number= 2;
+  id: number;
   userForMessage: User;
  
   message = '';
