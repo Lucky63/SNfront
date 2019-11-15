@@ -19,23 +19,26 @@ export class ChatComponent implements OnInit {
   id: number;
   userForMessage: User;
  
-  message = '';
+  message:string = '';
   messages: string[] = [];
   
   
   
 
   public sendMessage(): void {
+    
     this._hubConnection
       .invoke('SendToAll', this.user.userName, this.message, this.userForMessage.userName)
       .then(() => this.message = '')
       .catch(err => console.error(err));
+    this.save();
+    this.getmessages()
+
   }
   ngOnInit() {
-
+    
     //this.nick = window.prompt('Your name:', 'John');
     let token = localStorage.getItem("jwt");
-
     //Получаем юзера, которому отправляем сообщение
     this.http.get(`http://localhost:5000/api/user/getuserformessage/${this.id}`
      ).subscribe((response: User) => {
@@ -70,9 +73,33 @@ export class ChatComponent implements OnInit {
     this._hubConnection.on('Receive', (nick: string, receivedMessage: string) => {
       const text = `${nick}: ${receivedMessage}`;
       this.messages.push(text);
+    });   
+  }
+  public save() {
+    let token = localStorage.getItem("jwt");
+    this.http.get(`http://localhost:5000/api/messages/sevemessage/${this.id}/${this.message}`, {
+      headers: new HttpHeaders({
+        "Authorization": "Bearer " + token,
+        "Content-Type": "application/json"
+      })
+    }).subscribe(err => {
+      console.log(err)
+      });    
+  }
+  
+  public getmessages() {
+    let token = localStorage.getItem("jwt");
+    this.http.get(`http://localhost:5000/api/messages/GetMessages/${this.user.id}/${this.userForMessage.id}`, {
+      headers: new HttpHeaders({
+        "Authorization": "Bearer " + token,
+        "Content-Type": "application/json"
+      })
+    }).subscribe((response: string[]) => {
+      this.messages = response;
+    }, err => {
+      console.log(err)
     });
   }
-
 }
 
 
