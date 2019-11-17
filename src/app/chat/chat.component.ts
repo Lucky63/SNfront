@@ -22,7 +22,7 @@ export class ChatComponent implements OnInit {
   message:string = '';
   messages: string[] = [];
   
-  
+  bool: boolean = false;
   
 
   public sendMessage(): void {
@@ -32,9 +32,8 @@ export class ChatComponent implements OnInit {
       .then(() => this.message = '')
       .catch(err => console.error(err));
     this.save();
-    this.getmessages()
-
   }
+
   ngOnInit() {
     
     //this.nick = window.prompt('Your name:', 'John');
@@ -42,7 +41,7 @@ export class ChatComponent implements OnInit {
     //Получаем юзера, которому отправляем сообщение
     this.http.get(`http://localhost:5000/api/user/getuserformessage/${this.id}`
      ).subscribe((response: User) => {
-        this.userForMessage = response;
+       this.userForMessage = response;       
       }, err => {
         console.log(err)
         });
@@ -55,14 +54,14 @@ export class ChatComponent implements OnInit {
       })
     }).subscribe((response: User) => {
       this.user = response;
+      this.getmessages();
     }, err => {
       console.log(err)
     });
 
     let hubUrl = 'http://localhost:5000/chat';
     this._hubConnection = new signalR.HubConnectionBuilder()
-      .withUrl(hubUrl, { accessTokenFactory: () => token })
-      
+      .withUrl(hubUrl, { accessTokenFactory: () => token })      
       .build();
 
     this._hubConnection
@@ -73,8 +72,14 @@ export class ChatComponent implements OnInit {
     this._hubConnection.on('Receive', (nick: string, receivedMessage: string) => {
       const text = `${nick}: ${receivedMessage}`;
       this.messages.push(text);
-    });   
+    });
+        
+       
   }
+
+
+
+
   public save() {
     let token = localStorage.getItem("jwt");
     this.http.get(`http://localhost:5000/api/messages/sevemessage/${this.id}/${this.message}`, {

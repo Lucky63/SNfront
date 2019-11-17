@@ -3,10 +3,11 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\app",
-    "\\src\\app\\guards",
-    "\\src\\app\\login"
+    "\\src\\app\\add-friend",
+    "\\src\\app\\all-users",
+    "\\src\\app\\chat",
+    "\\src\\app\\friends-list"
   ],
-  "SelectedNode": "\\src\\app\\app\\app.component.ts",
+  "SelectedNode": "\\src\\app\\chat\\chat.component.ts",
   "PreviewInSolutionExplorer": false
 }
