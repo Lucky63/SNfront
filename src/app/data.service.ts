@@ -51,4 +51,14 @@ export class DataService {
       })
     });
   }
+
+  editIdentityUser(user: string) {
+
+    return this.http.put(this.urlUser + "/" + "edit", user, {
+      headers: new HttpHeaders({        
+        "Content-Type": "application/json"
+      })
+    });
+  }
+  
 }

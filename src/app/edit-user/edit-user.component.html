@@ -1,10 +1,8 @@
 <header-app></header-app>
 <body>
-  <form class="form-signin" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+  <form class="form-signin" #editForm="ngForm" (ngSubmit)="edit(editForm)">
     <div class="container-fluid" *ngIf="user">
-      <h2 class="form-signin-heading">Edit User</h2>
-      <div *ngIf="invalidLogin" class="alert alert-danger">Invalid username or password.</div>
-      <br />
+      <h2 class="form-signin-heading">Edit User</h2>      
       <div hidden="hidden"><input type="number" [(ngModel)]="user.id" id="id" name="id"></div>
 
       <br />
