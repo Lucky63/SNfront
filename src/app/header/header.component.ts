@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { JwtHelper } from 'angular2-jwt';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'header-app',
@@ -9,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
   header: string = "Social Network <<Rabbit>>";
-  constructor(private jwtHelper: JwtHelper, private router: Router) {
+  constructor(private jwtHelper: JwtHelper) {
   }
 
   isUserAuthenticated() {

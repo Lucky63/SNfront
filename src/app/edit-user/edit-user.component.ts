@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router} from '@angular/router';
 import { User } from 'app/user';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 import { NgForm } from '@angular/forms';
 import { DataService } from '../data.service';
 
@@ -12,7 +12,7 @@ import { DataService } from '../data.service';
 })
 export class EditUserComponent implements OnInit {  
   
-  constructor(private router: Router, public http: HttpClient, private dataService: DataService) {}
+  constructor(private router: Router, private dataService: DataService) {}
   user: User;
   invalidLogin: boolean;
   ngOnInit() {   

@@ -10,6 +10,7 @@ export class DataService {
 
   private urlCustomers = "http://localhost:5000/api/customers";
   private urlUser = "http://localhost:5000/api/user";
+  private urlAuth = "http://localhost:5000/api/auth";
   
   constructor(private http: HttpClient) {
   }  
@@ -56,6 +57,17 @@ export class DataService {
 
     return this.http.put(this.urlUser + "/" + "edit", user, {
       headers: new HttpHeaders({        
+        "Content-Type": "application/json"
+      })
+    });
+  }
+
+  //AuthController
+  login(user: string) {
+
+    return this.http.post(this.urlAuth + "/" + "login", user, {
+      headers: new HttpHeaders({
+        "Authorization": "Bearer " + this.token,
         "Content-Type": "application/json"
       })
     });
