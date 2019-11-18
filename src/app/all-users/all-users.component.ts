@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from 'app/user';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'all-users',
@@ -8,18 +8,15 @@ import { User } from 'app/user';
   styleUrls: ['./all-users.component.css']
 })
 export class AllUsersComponent implements OnInit {
+
   users: User[];
 
-  constructor(private http: HttpClient) { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    let token = localStorage.getItem("jwt");
-    this.http.get("http://localhost:5000/api/customers/getall", {
-      headers: new HttpHeaders({
-        "Authorization": "Bearer " + token,
-        "Content-Type": "application/json"
-      })
-    }).subscribe((response: User[]) => {
+
+    this.dataService.getAllUser()
+      .subscribe((response: User[]) => {
       this.users = response;
     }, err => {
       console.log(err)

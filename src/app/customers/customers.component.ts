@@ -13,7 +13,8 @@ export class CustomersComponent implements OnInit  {
   constructor(private dataService: DataService) { }
  
   ngOnInit() {    
-    this.dataService.getIdentiUser().subscribe((response : User)=> {
+    this.dataService.getIdentiUser()
+      .subscribe((response: User) => {
       this.user = response;
     }, err => {
       console.log(err)
