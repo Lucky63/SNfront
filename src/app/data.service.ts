@@ -60,17 +60,6 @@ export class DataService {
         "Content-Type": "application/json"
       })
     });
-  }
-
-  //AuthController
-  login(user: string) {
-
-    return this.http.post(this.urlAuth + "/" + "login", user, {
-      headers: new HttpHeaders({
-        "Authorization": "Bearer " + this.token,
-        "Content-Type": "application/json"
-      })
-    });
-  }
+  }  
   
 }
