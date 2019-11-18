@@ -42,4 +42,13 @@ export class DataService {
       })
     });
   }
+
+  deleteFriend(id: number) {
+    return this.http.delete(this.urlUser + "/" + "deletefriend" + "/" + id, {
+      headers: new HttpHeaders({
+        "Authorization": "Bearer " + this.token,
+        "Content-Type": "application/json"
+      })
+    });
+  }
 }
