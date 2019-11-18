@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-
 import { JwtHelper } from 'angular2-jwt'
 
 import { HomeComponent } from 'app/home/home.component';
@@ -20,6 +19,8 @@ import { AddFriendComponent } from 'app/add-friend/add-friend.Component';
 import { FriendsListComponent } from 'app/friends-list/friends-list.Component';
 import { DeleteFriendsComponent } from 'app/delete-friends/delete-friends.Component';
 import { ChatComponent } from 'app/chat/chat.Component';
+
+import { DataService } from './data.service';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,7 @@ import { ChatComponent } from 'app/chat/chat.Component';
       { path: 'friendslist/chat/:id', component: ChatComponent },
     ])
   ],
-  providers: [JwtHelper, AuthGuard],
+  providers: [JwtHelper, AuthGuard, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
