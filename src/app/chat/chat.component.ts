@@ -23,15 +23,17 @@ export class ChatComponent implements OnInit {
   messages: string[] = [];
   
   bool: boolean = false;
+  dateTime = new Date().toJSON().slice(0, 10).replace(/-/g, '/');
   
 
   public sendMessage(): void {
     
     this._hubConnection
-      .invoke('SendToAll', this.user.userName, this.message, this.userForMessage.userName)
+      .invoke('SendToAll', this.user.userName, this.message, this.userForMessage.userName, this.dateTime)
       .then(() => this.message = '')
       .catch(err => console.error(err));
     this.save();
+    
   }
 
   ngOnInit() {
@@ -69,8 +71,8 @@ export class ChatComponent implements OnInit {
       .then(() => console.log('Connection started!'))
       .catch(err => console.log('Error while establishing connection :('));
 
-    this._hubConnection.on('Receive', (nick: string, receivedMessage: string) => {
-      const text = `${nick}: ${receivedMessage}`;
+    this._hubConnection.on('Receive', (dateTime:string, nick: string, receivedMessage: string) => {
+      const text = `${dateTime}: ${nick}: ${receivedMessage}`;
       this.messages.push(text);
     });
         
