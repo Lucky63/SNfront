@@ -15,8 +15,8 @@ export class ChatComponent implements OnInit {
   }
 
   private _hubConnection: HubConnection;
-  user: User;
   id: number;
+  user: User;  
   userForMessage: User;
  
   message:string = '';
@@ -94,7 +94,7 @@ export class ChatComponent implements OnInit {
   
   public getmessages() {
     let token = localStorage.getItem("jwt");
-    this.http.get(`http://localhost:5000/api/messages/GetMessages/${this.user.id}/${this.userForMessage.id}`, {
+    this.http.get(`http://localhost:5000/api/messages/getmessages/${this.user.id}/${this.userForMessage.id}`, {
       headers: new HttpHeaders({
         "Authorization": "Bearer " + token,
         "Content-Type": "application/json"

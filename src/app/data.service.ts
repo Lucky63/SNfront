@@ -16,18 +16,20 @@ export class DataService {
   }  
   // CustomersController
   getIdentiUser() {
+    let token = localStorage.getItem("jwt");
     return this.http.get(this.urlCustomers + "/" + "getidenti", {
       headers: new HttpHeaders({
-        "Authorization": "Bearer " + this.token,
+        "Authorization": "Bearer " + token,
         "Content-Type": "application/json"
       })
     }); 
   }
 
   getAllUser() {
+    let token = localStorage.getItem("jwt");
     return this.http.get(this.urlCustomers + "/" + "getall", {
       headers: new HttpHeaders({
-        "Authorization": "Bearer " + this.token,
+        "Authorization": "Bearer " + token,
         "Content-Type": "application/json"
       })
     });
@@ -35,19 +37,21 @@ export class DataService {
 
   //UserController
 
-  getFriend(id:number) {
+  getFriend(id: number) {
+    let token = localStorage.getItem("jwt");
     return this.http.get(this.urlUser + "/" + "getfriend" +"/" + id , {
       headers: new HttpHeaders({
-        "Authorization": "Bearer " + this.token,
+        "Authorization": "Bearer " + token,
         "Content-Type": "application/json"
       })
     });
   }
 
   deleteFriend(id: number) {
+    let token = localStorage.getItem("jwt");
     return this.http.delete(this.urlUser + "/" + "deletefriend" + "/" + id, {
       headers: new HttpHeaders({
-        "Authorization": "Bearer " + this.token,
+        "Authorization": "Bearer " + token,
         "Content-Type": "application/json"
       })
     });
