@@ -6,11 +6,11 @@ import { User } from 'app/user';
 @Injectable()
 export class DataService {
 
-  private token = localStorage.getItem("jwt");  
+    
 
   private urlCustomers = "http://localhost:5000/api/customers";
   private urlUser = "http://localhost:5000/api/user";
-  private urlAuth = "http://localhost:5000/api/auth";
+  private urlMessage = "http://localhost:5000/api/messages";
   
   constructor(private http: HttpClient) {
   }  
@@ -64,6 +64,36 @@ export class DataService {
         "Content-Type": "application/json"
       })
     });
-  }  
-  
+  }
+
+  getUserForMessage(id:number) {
+    let token = localStorage.getItem("jwt");
+    return this.http.get(this.urlUser + "/" + "getuserformessage" + "/" + id, {
+      headers: new HttpHeaders({
+        "Authorization": "Bearer " + token,
+        "Content-Type": "application/json"
+      })
+    });
+  }
+
+  //MessageController
+  saveMessage(id: number, message:string) {
+    let token = localStorage.getItem("jwt");
+    return this.http.get(this.urlMessage + "/" + "sevemessage" + "/" + id + "/" + message, {
+      headers: new HttpHeaders({
+        "Authorization": "Bearer " + token,
+        "Content-Type": "application/json"
+      })
+    });
+  }
+
+  getMessages(id: number, Friendid: number) {
+    let token = localStorage.getItem("jwt");
+    return this.http.get(this.urlMessage + "/" + "getmessages" + "/" + id + "/" + Friendid, {
+      headers: new HttpHeaders({
+        "Authorization": "Bearer " + token,
+        "Content-Type": "application/json"
+      })
+    });
+  }
 }

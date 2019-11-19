@@ -1,17 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { HubConnection, HubConnectionBuilder } from '@aspnet/signalr';
+import { HttpClient } from '@angular/common/http';
+import { HubConnection } from '@aspnet/signalr';
 import * as signalR from '@aspnet/signalr';
 import { User } from 'app/user';
 import { ActivatedRoute } from '@angular/router';
+import { DataService } from 'app/data.service';
 
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html'
 })
 export class ChatComponent implements OnInit {
-  constructor(private http: HttpClient, activeRoute: ActivatedRoute) {
+  constructor(activeRoute: ActivatedRoute, private dataService: DataService) {
     this.id = Number.parseInt(activeRoute.snapshot.params["id"]);
+    
   }
 
   private _hubConnection: HubConnection;
@@ -25,7 +27,7 @@ export class ChatComponent implements OnInit {
   bool: boolean = false;
   dateTime = new Date().toJSON().slice(0, 10).replace(/-/g, '/');
   
-
+  
   public sendMessage(): void {
     
     this._hubConnection
@@ -37,24 +39,16 @@ export class ChatComponent implements OnInit {
   }
 
   ngOnInit() {
-    
-    //this.nick = window.prompt('Your name:', 'John');
     let token = localStorage.getItem("jwt");
-    //Получаем юзера, которому отправляем сообщение
-    this.http.get(`http://localhost:5000/api/user/getuserformessage/${this.id}`
-     ).subscribe((response: User) => {
+    //this.nick = window.prompt('Your name:', 'John');
+    this.dataService.getUserForMessage(this.id).subscribe((response: User) => {
        this.userForMessage = response;       
       }, err => {
         console.log(err)
         });
 
     //Юзер который отправляет сообщение
-    this.http.get("http://localhost:5000/api/customers/getidenti", {
-      headers: new HttpHeaders({
-        "Authorization": "Bearer " + token,
-        "Content-Type": "application/json"
-      })
-    }).subscribe((response: User) => {
+    this.dataService.getIdentiUser().subscribe((response: User) => {
       this.user = response;
       this.getmessages();
     }, err => {
@@ -74,34 +68,18 @@ export class ChatComponent implements OnInit {
     this._hubConnection.on('Receive', (dateTime:string, nick: string, receivedMessage: string) => {
       const text = `${dateTime}: ${nick}: ${receivedMessage}`;
       this.messages.push(text);
-    });
-        
+    });        
        
   }
 
-
-
-
   public save() {
-    let token = localStorage.getItem("jwt");
-    this.http.get(`http://localhost:5000/api/messages/sevemessage/${this.id}/${this.message}`, {
-      headers: new HttpHeaders({
-        "Authorization": "Bearer " + token,
-        "Content-Type": "application/json"
-      })
-    }).subscribe(err => {
+    this.dataService.saveMessage(this.id, this.message).subscribe(err => {
       console.log(err)
       });    
   }
   
   public getmessages() {
-    let token = localStorage.getItem("jwt");
-    this.http.get(`http://localhost:5000/api/messages/getmessages/${this.user.id}/${this.userForMessage.id}`, {
-      headers: new HttpHeaders({
-        "Authorization": "Bearer " + token,
-        "Content-Type": "application/json"
-      })
-    }).subscribe((response: string[]) => {
+    this.dataService.getMessages(this.user.id, this.id).subscribe((response: string[]) => {
       this.messages = response;
     }, err => {
       console.log(err)
