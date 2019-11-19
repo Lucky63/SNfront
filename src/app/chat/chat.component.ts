@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { HubConnection } from '@aspnet/signalr';
 import * as signalR from '@aspnet/signalr';
 import { User } from 'app/user';
@@ -19,23 +18,19 @@ export class ChatComponent implements OnInit {
   private _hubConnection: HubConnection;
   id: number;
   user: User;  
-  userForMessage: User;
- 
+  userForMessage: User; 
   message:string = '';
-  messages: string[] = [];
-  
+  messages: string[] = [];  
   bool: boolean = false;
   dateTime = new Date().toJSON().slice(0, 10).replace(/-/g, '/');
   
   
-  public sendMessage(): void {
-    
+  public sendMessage(): void {    
     this._hubConnection
       .invoke('SendToAll', this.user.userName, this.message, this.userForMessage.userName, this.dateTime)
       .then(() => this.message = '')
       .catch(err => console.error(err));
-    this.save();
-    
+    this.save();    
   }
 
   ngOnInit() {
@@ -64,12 +59,13 @@ export class ChatComponent implements OnInit {
       .start()
       .then(() => console.log('Connection started!'))
       .catch(err => console.log('Error while establishing connection :('));
-
-    this._hubConnection.on('Receive', (dateTime:string, nick: string, receivedMessage: string) => {
-      const text = `${dateTime}: ${nick}: ${receivedMessage}`;
-      this.messages.push(text);
-    });        
-       
+    
+    this._hubConnection.on('Receive', (dateTime: string, nick: string, receivedMessage: string) => {
+      if (this.userForMessage.userName == nick || this.user.userName==nick) {
+        const text = `${dateTime}: ${nick}: ${receivedMessage}`;
+        this.messages.push(text);
+      }      
+    });      
   }
 
   public save() {

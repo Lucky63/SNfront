@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent {
 
-  constructor(private jwtHelper: JwtHelper, private router: Router) {
+  constructor(private jwtHelper: JwtHelper) {
   }
   
 
