@@ -39,7 +39,7 @@ export class DataService {
 
   getFriend(id: number) {
     let token = localStorage.getItem("jwt");
-    return this.http.get(this.urlUser + "/" + "getfriend" +"/" + id , {
+    return this.http.get(this.urlUser + "/" + "addfriendasync" +"/" + id , {
       headers: new HttpHeaders({
         "Authorization": "Bearer " + token,
         "Content-Type": "application/json"
