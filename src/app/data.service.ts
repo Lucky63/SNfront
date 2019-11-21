@@ -8,7 +8,6 @@ export class DataService {
 
     
 
-  private urlCustomers = "http://localhost:5000/api/customers";
   private urlUser = "http://localhost:5000/api/user";
   private urlMessage = "http://localhost:5000/api/messages";
   
