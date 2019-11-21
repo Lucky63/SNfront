@@ -17,7 +17,7 @@ export class DataService {
   // CustomersController
   getIdentiUser() {
     let token = localStorage.getItem("jwt");
-    return this.http.get(this.urlUser + "/" + "getidenti", {
+    return this.http.get(this.urlUser + "/" + "getidentityasync", {
       headers: new HttpHeaders({
         "Authorization": "Bearer " + token,
         "Content-Type": "application/json"
@@ -27,7 +27,7 @@ export class DataService {
 
   getAllUser() {
     let token = localStorage.getItem("jwt");
-    return this.http.get(this.urlUser + "/" + "getall", {
+    return this.http.get(this.urlUser + "/" + "getallasync", {
       headers: new HttpHeaders({
         "Authorization": "Bearer " + token,
         "Content-Type": "application/json"
@@ -49,7 +49,7 @@ export class DataService {
 
   deleteFriend(id: number) {
     let token = localStorage.getItem("jwt");
-    return this.http.delete(this.urlUser + "/" + "deletefriend" + "/" + id, {
+    return this.http.delete(this.urlUser + "/" + "deletefriendasync" + "/" + id, {
       headers: new HttpHeaders({
         "Authorization": "Bearer " + token,
         "Content-Type": "application/json"
