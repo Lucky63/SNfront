@@ -78,7 +78,7 @@ export class DataService {
   //MessageController
   saveMessage(id: number, message:string) {
     let token = localStorage.getItem("jwt");
-    return this.http.get(this.urlMessage + "/" + "sevemessage" + "/" + id + "/" + message, {
+    return this.http.get(this.urlMessage + "/" + "sevemessageasync" + "/" + id + "/" + message, {
       headers: new HttpHeaders({
         "Authorization": "Bearer " + token,
         "Content-Type": "application/json"
@@ -88,7 +88,7 @@ export class DataService {
 
   getMessages(id: number, Friendid: number) {
     let token = localStorage.getItem("jwt");
-    return this.http.get(this.urlMessage + "/" + "getmessages" + "/" + id + "/" + Friendid, {
+    return this.http.get(this.urlMessage + "/" + "getmessagesasync" + "/" + id + "/" + Friendid, {
       headers: new HttpHeaders({
         "Authorization": "Bearer " + token,
         "Content-Type": "application/json"
