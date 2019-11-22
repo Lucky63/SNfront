@@ -15,7 +15,7 @@ export class RegistrComponent {
 
   login(form: NgForm) {
     let credentials = JSON.stringify(form.value);
-    this.http.post("http://localhost:5000/api/auth/registr", credentials, {
+    this.http.post("http://localhost:5000/api/auth/registrationasync", credentials, {
       headers: new HttpHeaders({
         "Content-Type": "application/json"
       })
