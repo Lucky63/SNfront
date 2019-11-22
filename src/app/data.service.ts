@@ -58,7 +58,7 @@ export class DataService {
 
   editIdentityUser(user: string) {
 
-    return this.http.put(this.urlUser + "/" + "edit", user, {
+    return this.http.put(this.urlUser + "/" + "editasync", user, {
       headers: new HttpHeaders({        
         "Content-Type": "application/json"
       })
@@ -67,7 +67,7 @@ export class DataService {
 
   getUserForMessage(id:number) {
     let token = localStorage.getItem("jwt");
-    return this.http.get(this.urlUser + "/" + "getuserformessage" + "/" + id, {
+    return this.http.get(this.urlUser + "/" + "getuserformessageasync" + "/" + id, {
       headers: new HttpHeaders({
         "Authorization": "Bearer " + token,
         "Content-Type": "application/json"
