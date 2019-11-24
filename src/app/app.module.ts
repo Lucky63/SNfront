@@ -1,3 +1,4 @@
+import { AddFilesComponent } from 'app/add-files/add-files.component';
 import { AuthGuard } from './guards/auth-guard.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -20,6 +21,9 @@ import { FriendsListComponent } from 'app/friends-list/friends-list.Component';
 import { DeleteFriendsComponent } from 'app/delete-friends/delete-friends.Component';
 import { ChatComponent } from 'app/chat/chat.Component';
 
+
+
+
 import { DataService } from './data.service';
 
 @NgModule({
@@ -28,7 +32,7 @@ import { DataService } from './data.service';
     LoginComponent,
     CustomersComponent,
     AppComponent, RegistrComponent, HeaderComponent, EditUserComponent, UserFormComponent,
-    AllUsersComponent, AddFriendComponent, FriendsListComponent, DeleteFriendsComponent, ChatComponent],
+    AllUsersComponent, AddFriendComponent, FriendsListComponent, DeleteFriendsComponent, ChatComponent, AddFilesComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -44,6 +48,7 @@ import { DataService } from './data.service';
       { path: 'friendslist', component: FriendsListComponent },
       { path: 'friendslist/delfriend/:id', component: DeleteFriendsComponent },
       { path: 'friendslist/chat/:id', component: ChatComponent },
+      { path: 'addfile', component: AddFilesComponent },
     ])
   ],
   providers: [JwtHelper, AuthGuard, DataService],
