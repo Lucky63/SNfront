@@ -39,7 +39,7 @@ export class AddFilesComponent implements OnInit {
 
   onSubmit() {
     let formData = new FormData();
-    formData.append('files', this.fileData);
+    formData.append('files', this.fileData, this.fileData.name);
 
     this.fileUploadProgress = '0%';
 
