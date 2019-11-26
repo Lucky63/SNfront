@@ -6,6 +6,7 @@ export class User {
     public userName?: string,
     public password?: string,
     public lastName?: string,
+    public avatarImgPath?: string,
     public friends?: Friends[],
   ) { }
   

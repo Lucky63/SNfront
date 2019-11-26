@@ -15,6 +15,13 @@ export class EditUserComponent implements OnInit {
   constructor(private router: Router, private dataService: DataService) {}
   user: User;
   invalidLogin: boolean;
+
+  public response: { dbPath: '' };
+
+  public uploadFinished = (event) => {
+    this.response = event;
+  }
+
   ngOnInit() {   
     this.dataService.getIdentiUser()
       .subscribe((response: User) => {

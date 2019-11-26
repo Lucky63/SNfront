@@ -20,6 +20,7 @@ import { AddFriendComponent } from 'app/add-friend/add-friend.Component';
 import { FriendsListComponent } from 'app/friends-list/friends-list.Component';
 import { DeleteFriendsComponent } from 'app/delete-friends/delete-friends.Component';
 import { ChatComponent } from 'app/chat/chat.Component';
+import { UploadComponent } from 'app/upload/upload.component';
 
 
 
@@ -32,7 +33,7 @@ import { DataService } from './data.service';
     LoginComponent,
     CustomersComponent,
     AppComponent, RegistrComponent, HeaderComponent, EditUserComponent, UserFormComponent,
-    AllUsersComponent, AddFriendComponent, FriendsListComponent, DeleteFriendsComponent, ChatComponent, AddFilesComponent],
+    AllUsersComponent, AddFriendComponent, FriendsListComponent, DeleteFriendsComponent, ChatComponent, AddFilesComponent, UploadComponent],
   imports: [
     BrowserModule,
     FormsModule,

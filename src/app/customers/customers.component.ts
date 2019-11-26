@@ -11,6 +11,10 @@ export class CustomersComponent implements OnInit  {
   user: User;
  
   constructor(private dataService: DataService) { }
+
+  public createImgPath = (serverPath: string) => {
+    return `http://localhost:5000/${serverPath}`;
+  }
  
   ngOnInit() {    
     this.dataService.getIdentiUser()

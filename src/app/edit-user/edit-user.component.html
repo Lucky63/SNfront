@@ -1,8 +1,9 @@
-<header-app></header-app>
+<header-app (onUploadFinished)="uploadFinished($event)"></header-app>
+<app-upload></app-upload>
 <body>
   <form class="form-signin" #editForm="ngForm" (ngSubmit)="edit(editForm)">
     <div class="container-fluid" *ngIf="user">
-      <h2 class="form-signin-heading">Edit User</h2>      
+      <h2 class="form-signin-heading">Edit User</h2>
       <div hidden="hidden"><input type="number" [(ngModel)]="user.id" id="id" name="id"></div>
 
       <br />
@@ -12,7 +13,9 @@
       <label for="lastname" class="sr-only">LastName</label>
       <input type="text" [(ngModel)]="user.lastName" id="lastname" name="lastname" ngModel class="form-control" placeholder="LastName" required>
       <br />
-
+      <label for="avatarImgPath" class="sr-only">avatarImgPath</label>
+      <input type="text" [(ngModel)]="user.avatarImgPath" id="avatarImgPath" name="avatarImgPath" ngModel class="form-control" placeholder="avatarImgPath" required>
+      <br />
       <button class="btn btn-lg btn-primary btn-block" type="submit">Edit</button>
       <button routerLink="/">На главную</button>
     </div>
