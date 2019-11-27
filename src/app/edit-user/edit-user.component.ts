@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router} from '@angular/router';
 import { User } from 'app/user';
-
-import { NgForm } from '@angular/forms';
 import { DataService } from '../data.service';
 
 
@@ -20,6 +18,7 @@ export class EditUserComponent implements OnInit {
 
   public uploadFinished = (event) => {
     this.response = event;
+    this.user.avatarImgPath = this.response.dbPath;
   }
 
   ngOnInit() {   
@@ -31,11 +30,9 @@ export class EditUserComponent implements OnInit {
       });     
   }
 
-  edit(form: NgForm) {
-    let user = JSON.stringify(form.value);
-    this.dataService.editIdentityUser(user)
-      .subscribe(response => this.router.navigate(["/"]));
-    
+  edit() {    
+    this.dataService.editIdentityUser(this.user)
+      .subscribe(response => this.router.navigate(["/"]));    
   }
   
 }

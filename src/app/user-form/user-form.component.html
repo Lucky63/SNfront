@@ -1,9 +1,13 @@
 <div class="form-group">
-  <label>Login</label>
-  <input type="text" [(ngModel)]="user.username" class="form-control" />
+  <br />
+  <label for="username" class="sr-only">Login</label>
+  <input *ngIf="user" type="text" [(ngModel)]="user.userName" id="username" name="username" ngModel class="form-control" placeholder="User Name" required autofocus>
+  <br />
 </div>
+
 <div class="form-group">
-  <label>LastName</label>
-  <input type="text" [(ngModel)]="user.lastname" class="form-control" />
+  <label for="lastname" class="sr-only">LastName</label>
+  <input *ngIf="user" type="text" [(ngModel)]="user.lastName" id="lastname" name="lastname" ngModel class="form-control" placeholder="LastName" required>
+  <br />
 </div>
 

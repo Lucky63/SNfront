@@ -56,7 +56,7 @@ export class DataService {
     });
   }
 
-  editIdentityUser(user: string) {
+  editIdentityUser(user: User) {
 
     return this.http.put(this.urlUser + "/" + "editasync", user, {
       headers: new HttpHeaders({        
