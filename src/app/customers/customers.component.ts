@@ -10,6 +10,9 @@ import { DataService } from '../data.service';
 export class CustomersComponent implements OnInit  {
   user: User;
   getPhotos: string = `http://localhost:5000/`;
+
+
+
   constructor(private dataService: DataService) { }
   
 

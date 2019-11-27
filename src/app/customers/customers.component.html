@@ -7,10 +7,9 @@
 </div>
 
 <div *ngIf="user">
-  <strong>ваши фотографии:</strong>
-  <div *ngFor="let p of user.photos">
-
-  <img src="{{p.path}}" style="width:60px; height:60px;">
+  <strong>Ваши фотографии:</strong>
+  <div  class="logo" *ngFor="let p of user.photos">    
+  <img src="http://localhost:5000/{{p.path}}" style="width:60px; height:60px;">
   </div>
 </div>
 
