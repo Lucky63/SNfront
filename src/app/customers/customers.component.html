@@ -5,10 +5,19 @@
 <div *ngIf="user">
   <strong>Ваша фамилия:  <ins>{{user.lastName}}</ins> </strong>
 </div>
+
+<div *ngIf="user">
+  <strong>ваши фотографии:</strong>
+  <div *ngFor="let p of user.photos">
+
+  <img src="{{p.path}}" style="width:60px; height:60px;">
+  </div>
+</div>
+
 <div class="logo" *ngIf="user">
-  <!--<img [src]="createImgPath(user.avatarImgPath)" alt="profile picture" style="width:60px; height:60px;">>-->
   <img [src]="createImgPath(user.avatarImgPath)" alt="Logo"style="width:60px; height:60px;">
 </div>
 <div *ngIf="user">
   <button routerLink="/friendslist">Friends</button>
+  <button routerLink="/addphotos">Addphotos</button>
 </div>

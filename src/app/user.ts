@@ -1,4 +1,5 @@
 import { Friends } from "./friends";
+import { Photos } from "./photos";
 
 export class User {
   constructor(
@@ -7,6 +8,7 @@ export class User {
     public password?: string,
     public lastName?: string,
     public avatarImgPath?: string,
+    public photos?: Photos[],
     public friends?: Friends[],
   ) { }
   
