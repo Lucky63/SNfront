@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { HttpEventType, HttpClient } from '@angular/common/http';
+import { HttpEventType } from '@angular/common/http';
 import { User } from 'app/user';
 import { DataService } from 'app/data.service';
 
@@ -15,7 +15,7 @@ export class AddPhotosComponent implements OnInit {
 
   @Output() public onUploadFinished = new EventEmitter();
 
-  constructor(private http: HttpClient, private dataService: DataService) { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
     this.dataService.getIdentiUser()
@@ -33,9 +33,8 @@ export class AddPhotosComponent implements OnInit {
 
     let fileToUpload = <File>files[0];
     const formData = new FormData();
-    formData.append('file', fileToUpload, fileToUpload.name);
-    let token = localStorage.getItem("jwt");
-    this.http.post('http://localhost:5000/api/file/UploadPhoto/' + this.user.id, formData,  { reportProgress: true, observe: 'events'  })
+    formData.append('file', fileToUpload, fileToUpload.name);    
+    this.dataService.upladFile(this.user.id, formData)
       .subscribe(event => {
         if (event.type === HttpEventType.UploadProgress)
           this.progress = Math.round(100 * event.loaded / event.total);

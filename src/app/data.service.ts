@@ -10,6 +10,7 @@ export class DataService {
 
   private urlUser = "http://localhost:5000/api/user";
   private urlMessage = "http://localhost:5000/api/messages";
+  private urlFile = "http://localhost:5000/api/file";
   
   constructor(private http: HttpClient) {
   }  
@@ -94,5 +95,10 @@ export class DataService {
         "Content-Type": "application/json"
       })
     });
+  }
+
+  //FileController
+  upladFile(id: number, formData:any ) {
+    return this.http.post(this.urlFile + "/" + "UploadPhoto" + "/" + id, formData, { reportProgress: true, observe: 'events' })
   }
 }

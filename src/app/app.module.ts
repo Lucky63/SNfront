@@ -1,4 +1,4 @@
-import { AddFilesComponent } from 'app/add-files/add-files.component';
+
 import { AuthGuard } from './guards/auth-guard.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -36,7 +36,7 @@ import { DataService } from './data.service';
     CustomersComponent,
     AppComponent, RegistrComponent, HeaderComponent, EditUserComponent, UserFormComponent,
     AllUsersComponent, AddFriendComponent, FriendsListComponent, DeleteFriendsComponent,
-    ChatComponent, AddFilesComponent, UploadComponent, AddPhotosComponent, GalleryComponent],
+    ChatComponent, UploadComponent, AddPhotosComponent, GalleryComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -52,7 +52,6 @@ import { DataService } from './data.service';
       { path: 'friendslist', component: FriendsListComponent },
       { path: 'friendslist/delfriend/:id', component: DeleteFriendsComponent },
       { path: 'friendslist/chat/:id', component: ChatComponent },
-      { path: 'addfile', component: AddFilesComponent },
       { path: 'addphotos', component: AddPhotosComponent },
       { path: 'gallery', component: GalleryComponent },
     ])
