@@ -1,10 +1,16 @@
 <button routerLink="/">На главную</button>
 <app-add-photos></app-add-photos>
-<div *ngIf="user">
-  <strong>Ваши фотографии:</strong>
-  <div class="logo" *ngFor="let p of user.photos">
-    <br />
-    <img src="http://localhost:5000/{{p.path}}" style="width:400px; height:300px;">
-  </div>
-</div>
-
+<table class="table table-striped" *ngIf="user">
+  <thead>
+    <tr>
+      <th>Имя</th>      
+      <th>Операции</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of user.photos">
+      <td><img src="http://localhost:5000/{{p.path}}" style="width:400px; height:300px;"></td>      
+      <td><a [routerLink]="['deletephoto', p.id]" class="btn btn-sm btn-primary">Удалить</a></td>
+    </tr>
+  </tbody>
+</table>

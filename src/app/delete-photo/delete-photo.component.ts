@@ -5,9 +5,9 @@ import { DataService } from '../data.service';
 
 @Component({
   selector: 'add-friends',
-  templateUrl: './add-friend.component.html'
+  templateUrl: './delete-photo.component.html'
 })
-export class AddFriendComponent implements OnInit {
+export class DeletePhotoComponent implements OnInit {
 
   id: number;
 
@@ -16,12 +16,12 @@ export class AddFriendComponent implements OnInit {
   }
 
   ngOnInit() {
-    
-    this.dataService.getFriend(this.id)
-      .subscribe(data => this.router.navigateByUrl("/"))
+
+    this.dataService.deletePhoto(this.id)
+      .subscribe(data => this.router.navigateByUrl("/gallery"))
 
   }
 
 
-  
+
 }

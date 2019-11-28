@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { HttpEventType } from '@angular/common/http';
 import { User } from 'app/user';
 import { DataService } from 'app/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-photos',
@@ -15,7 +16,7 @@ export class AddPhotosComponent implements OnInit {
 
   @Output() public onUploadFinished = new EventEmitter();
 
-  constructor(private dataService: DataService) { }
+  constructor(private router: Router, private dataService: DataService) { }
 
   ngOnInit() {
     this.dataService.getIdentiUser()
@@ -35,13 +36,14 @@ export class AddPhotosComponent implements OnInit {
     const formData = new FormData();
     formData.append('file', fileToUpload, fileToUpload.name);    
     this.dataService.upladFile(this.user.id, formData)
-      .subscribe(event => {
+      .subscribe(event =>  {
         if (event.type === HttpEventType.UploadProgress)
           this.progress = Math.round(100 * event.loaded / event.total);
         else if (event.type === HttpEventType.Response) {
-          this.message = 'Upload success.';
-          this.onUploadFinished.emit(event.body);
+          this.message = 'Upload success.';          
+          this.onUploadFinished.emit(event.body);          
         }
-      });
-  }
+        location.href = "/gallery";
+      });    
+  } 
 }
