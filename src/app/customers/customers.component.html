@@ -6,14 +6,12 @@
 </div>
 <br />
 <div *ngIf="user">
-  <strong>Вы вошли как:  <ins>{{user.userName}}</ins> </strong>
+  <strong><ins>{{user.userName}}</ins> </strong>
 </div>
-<div *ngIf="user">
-  <strong>Ваша фамилия:  <ins>{{user.lastName}}</ins> </strong>
-</div>
+
 
 
 <div *ngIf="user">
   <button routerLink="/friendslist">Friends</button> 
-  <button routerLink="/gallery">Галерея ваших фото</button>
+  <button routerLink="/profile">Профиль</button>
 </div>

@@ -7,6 +7,8 @@ export class User {
     public userName?: string,
     public password?: string,
     public lastName?: string,
+    public age?: number,
+    public city?: string,
     public avatarImgPath?: string,
     public photos?: Photos[],
     public friends?: Friends[],

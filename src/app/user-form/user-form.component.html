@@ -10,4 +10,16 @@
   <input *ngIf="user" type="text" [(ngModel)]="user.lastName" id="lastname" name="lastname" ngModel class="form-control" placeholder="LastName" required>
   <br />
 </div>
+<div class="form-group">
+  <br />
+  <label for="Age" class="sr-only">Age</label>
+  <input *ngIf="user" type="number" [(ngModel)]="user.age" id="age" name="age" ngModel class="form-control" placeholder="Age" required>
+  <br />
+</div>
+<div class="form-group">
+  <br />
+  <label for="country" class="sr-only">City</label>
+  <input *ngIf="user" type="text" [(ngModel)]="user.city" id="country" name="city" ngModel class="form-control" placeholder="City" required>
+  <br />
+</div>
 
