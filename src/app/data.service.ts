@@ -105,4 +105,8 @@ export class DataService {
   deletePhoto(id: number) {
     return this.http.delete(this.urlFile + "/" + "DeletePhotoAsync" + "/" + id);
   }
+
+  upload(formData: any) {
+    return this.http.post(this.urlFile + "/" + "Upload", formData, { reportProgress: true, observe: 'events' });
+  }
 }
