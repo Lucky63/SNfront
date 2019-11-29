@@ -99,7 +99,7 @@ export class DataService {
 
   //FileController
   upladFile(id: number, formData:any ) {
-    return this.http.post(this.urlFile + "/" + "UploadPhoto" + "/" + id, formData, { reportProgress: true, observe: 'events' });
+    return this.http.post(this.urlFile + "/" + "UploadPhotoAsync" + "/" + id, formData, { reportProgress: true, observe: 'events' });
   }
 
   deletePhoto(id: number) {
