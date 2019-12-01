@@ -76,6 +76,16 @@ export class DataService {
     });
   }
 
+  getUserForProfile(id: number) {
+    let token = localStorage.getItem("jwt");
+    return this.http.get(this.urlUser + "/" + "GetUserForProfileAsync" + "/" + id, {
+      headers: new HttpHeaders({
+        "Authorization": "Bearer " + token,
+        "Content-Type": "application/json"
+      })
+    });
+  }
+
   //MessageController
   saveMessage(id: number, message:string) {
     let token = localStorage.getItem("jwt");

@@ -25,6 +25,7 @@ import { AddPhotosComponent } from 'app/add-photos/add-photos.component';
 import { GalleryComponent } from 'app/gallery/gallery.component';
 import { DeletePhotoComponent } from 'app/delete-photo/delete-photo.component';
 import { ProfileComponent } from 'app/profile/profile.component';
+import { ProfileFriendComponent } from 'app/profile-friend/profile-friend.component';
 
 
 
@@ -38,7 +39,8 @@ import { DataService } from './data.service';
     CustomersComponent,
     AppComponent, RegistrComponent, HeaderComponent, EditUserComponent, UserFormComponent,
     AllUsersComponent, AddFriendComponent, FriendsListComponent, DeleteFriendsComponent,
-    ChatComponent, UploadComponent, AddPhotosComponent, GalleryComponent, DeletePhotoComponent, ProfileComponent],
+    ChatComponent, UploadComponent, AddPhotosComponent, GalleryComponent, DeletePhotoComponent,
+    ProfileComponent, ProfileFriendComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -58,6 +60,7 @@ import { DataService } from './data.service';
       { path: 'gallery', component: GalleryComponent },
       { path: 'gallery/deletephoto/:id', component: DeletePhotoComponent },
       { path: 'profile', component: ProfileComponent },
+      { path: 'friendslist/profilefriend/:id', component: ProfileFriendComponent },
     ])
   ],
   providers: [JwtHelper, AuthGuard, DataService],
