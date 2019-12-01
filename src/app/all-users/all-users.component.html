@@ -1,3 +1,4 @@
+<button routerLink="/">На главную</button>
 <h4><b>Список всех Пользователей</b></h4>
 <table class="table table-striped">
   <thead>
@@ -5,6 +6,7 @@
       <th>Имя</th>
       <th>Фамилия</th>
       <th>Добавить в друзья</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -12,6 +14,7 @@
       <td>{{p?.userName}}</td>
       <td>{{p?.lastName}}</td>
       <td><a [routerLink]="['addfriends', p.id]" class="btn btn-sm btn-primary">В друзья</a></td>
+      <td><a [routerLink]="['profileallusers', p.id]" class="btn btn-sm btn-primary">Профиль</a></td>
     </tr>
   </tbody>
 </table>
