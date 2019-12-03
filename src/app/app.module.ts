@@ -27,6 +27,7 @@ import { DeletePhotoComponent } from 'app/delete-photo/delete-photo.component';
 import { ProfileComponent } from 'app/profile/profile.component';
 import { ProfileFriendComponent } from 'app/profile-friend/profile-friend.component';
 import { ProfileAllUsersComponent } from 'app/profile-allusers/profile-allusers.component';
+import { TapeComponent } from 'app/tape/tape.component';
 
 
 
@@ -41,7 +42,7 @@ import { DataService } from './data.service';
     AppComponent, RegistrComponent, HeaderComponent, EditUserComponent, UserFormComponent,
     AllUsersComponent, AddFriendComponent, FriendsListComponent, DeleteFriendsComponent,
     ChatComponent, UploadComponent, AddPhotosComponent, GalleryComponent, DeletePhotoComponent,
-    ProfileComponent, ProfileFriendComponent, ProfileAllUsersComponent],
+    ProfileComponent, ProfileFriendComponent, ProfileAllUsersComponent, TapeComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -63,6 +64,7 @@ import { DataService } from './data.service';
       { path: 'profile', component: ProfileComponent },
       { path: 'friendslist/profilefriend/:id', component: ProfileFriendComponent },
       { path: 'allusers/profileallusers/:id', component: ProfileAllUsersComponent },
+      { path: 'tape', component: TapeComponent },
     ])
   ],
   providers: [JwtHelper, AuthGuard, DataService],

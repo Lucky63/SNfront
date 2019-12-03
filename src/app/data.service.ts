@@ -107,6 +107,16 @@ export class DataService {
     });
   }
 
+  SaveFeedAsync(id:number, message: string) {
+    let token = localStorage.getItem("jwt");
+    return this.http.post(this.urlMessage + "/" + "SaveMessageForTapeAsync" + "/" + id + "/" + message, {
+      headers: new HttpHeaders({
+        "Authorization": "Bearer " + token,
+        "Content-Type": "application/json"
+      })
+    });
+  }
+
   //FileController
   upladFile(id: number, formData:any ) {
     return this.http.post(this.urlFile + "/" + "UploadPhotoAsync" + "/" + id, formData, { reportProgress: true, observe: 'events' });
