@@ -117,6 +117,16 @@ export class DataService {
     });
   }
 
+  GetMessagesFromTapes(id: number) {
+    let token = localStorage.getItem("jwt");
+    return this.http.get(this.urlMessage + "/" + "GetMessagesFromTapes" + "/" + id, {
+      headers: new HttpHeaders({
+        "Authorization": "Bearer " + token,
+        "Content-Type": "application/json"
+      })
+    });
+  }
+
   //FileController
   upladFile(id: number, formData:any ) {
     return this.http.post(this.urlFile + "/" + "UploadPhotoAsync" + "/" + id, formData, { reportProgress: true, observe: 'events' });

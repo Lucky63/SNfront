@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class TapeComponent implements OnInit {
   user: User;
-  any: any;
+  messages: string[];
   constructor(private router: Router, private dataService: DataService) { }
 
 
@@ -21,12 +21,22 @@ export class TapeComponent implements OnInit {
     this.dataService.getIdentiUser()
       .subscribe((response: User) => {
         this.user = response;
+        this.uploadMessages();
       }, err => {
         console.log(err)
         });   
   }
 
   mess(message:string) {
-    this.dataService.SaveFeedAsync(this.user.id, message).subscribe(data => this.router.navigateByUrl("/"))   
+    this.dataService.SaveFeedAsync(this.user.id, message).subscribe(data => this.router.navigateByUrl("tape"))   
   }
+
+  uploadMessages() {
+    this.dataService.GetMessagesFromTapes(this.user.id).subscribe((response: string[]) => {
+      this.messages = response;
+    }, err => {
+      console.log(err)
+    }); 
+  }
+
 }
