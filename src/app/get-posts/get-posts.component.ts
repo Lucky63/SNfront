@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'app/user';
 import { DataService } from '../data.service';
 import { UserPost } from '../userPost';
+import { Data } from '@angular/router';
 
 @Component({
   selector: 'app-get-posts',
@@ -10,13 +11,10 @@ import { UserPost } from '../userPost';
 export class GetPostsComponent implements OnInit {
   user: User;
   posts: UserPost[];
+  
 
   constructor(private dataService: DataService) { }
 
-
-  public createImgPath = (serverPath: string) => {
-    return `http://localhost:5000/${serverPath}`;
-  }
 
   ngOnInit() {
     this.dataService.getIdentiUser()

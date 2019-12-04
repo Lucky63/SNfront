@@ -1,5 +1,6 @@
 <div *ngIf="user">
   <div *ngFor="let p of posts">
-    <h4>{{p.timeOfPublication}}: {{p.post}} </h4>
+    <h2>{{p.timeOfPublication | date:'MM-dd-yyyy @ hh:mma'}}:<strong>{{p.authorPost}}</strong></h2>
+    <h3>{{p.post}}</h3>
   </div>
 </div>
