@@ -96,6 +96,16 @@ export class DataService {
     });
   }
 
+  getPosts(id: number) {
+    let token = localStorage.getItem("jwt");
+    return this.http.get(this.urlUser + "/" + "GetAllPostsAsync" + "/" + id, {
+      headers: new HttpHeaders({
+        "Authorization": "Bearer " + token,
+        "Content-Type": "application/json"
+      })
+    });
+  }
+
   //MessageController
   saveMessage(id: number, message:string) {
     let token = localStorage.getItem("jwt");
