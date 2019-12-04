@@ -1,5 +1,6 @@
 import { Friends } from "./friends";
 import { Photos } from "./photos";
+import { UserPost } from "./userPost";
 
 export class User {
   constructor(
@@ -12,6 +13,7 @@ export class User {
     public avatarImgPath?: string,
     public photos?: Photos[],
     public friends?: Friends[],
+    public userPosts?: UserPost[]
   ) { }
   
 }

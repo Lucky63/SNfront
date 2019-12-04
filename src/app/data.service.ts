@@ -86,6 +86,16 @@ export class DataService {
     });
   }
 
+  saveUserPost(id: number, post: string) {
+    let token = localStorage.getItem("jwt");
+    return this.http.post(this.urlUser + "/" + "SaveUserPostAsync" + "/" + id + "/" + post, {
+      headers: new HttpHeaders({
+        "Authorization": "Bearer " + token,
+        "Content-Type": "application/json"
+      })
+    });
+  }
+
   //MessageController
   saveMessage(id: number, message:string) {
     let token = localStorage.getItem("jwt");

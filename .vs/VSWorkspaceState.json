@@ -3,14 +3,14 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\add-files",
-    "\\src\\app\\chat",
+    "\\src\\app\\add-friend",
+    "\\src\\app\\customers",
     "\\src\\app\\friends-list",
-    "\\src\\app\\header",
     "\\src\\app\\home",
     "\\src\\app\\login",
-    "\\src\\app\\registr"
+    "\\src\\app\\registr",
+    "\\src\\app\\tape"
   ],
-  "SelectedNode": "\\src\\app\\add-files\\add-files.component.ts",
+  "SelectedNode": "\\src\\app\\tape\\tape.component.ts",
   "PreviewInSolutionExplorer": false
 }
