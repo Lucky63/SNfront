@@ -1,7 +1,7 @@
-
+<app-post></app-post>
   <div *ngFor="let p of posts">
-    <h2>{{p.timeOfPublication | date:'MM-dd-yyyy @ hh:mma'}}:<strong>{{p.authorPost}}</strong></h2>
-    <h3>{{p.post}}</h3>
+    <h6>{{p.timeOfPublication | date:'MM-dd-yyyy @ hh:mma'}}:<strong>{{p.authorPost}}</strong></h6>
+    <h5>{{p.post}}</h5>
   </div>
 
 <input type="button" value="Prev" (click)="prevButAndAll(page-1)" [disabled]="page === 1" class="btn btn-default" />
