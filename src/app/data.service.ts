@@ -96,9 +96,9 @@ export class DataService {
     });
   }
 
-  getPosts(id: number) {
+  getPosts( page: number, size: number) {
     let token = localStorage.getItem("jwt");
-    return this.http.get(this.urlUser + "/" + "GetAllPostsAsync" + "/" + id, {
+    return this.http.get(this.urlUser + "/" + "GetAllPostsAsync"  + "/" + page + "/" + size, {
       headers: new HttpHeaders({
         "Authorization": "Bearer " + token,
         "Content-Type": "application/json"
