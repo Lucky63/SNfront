@@ -27,7 +27,7 @@ import { DeletePhotoComponent } from 'app/delete-photo/delete-photo.component';
 import { ProfileComponent } from 'app/profile/profile.component';
 import { ProfileFriendComponent } from 'app/profile-friend/profile-friend.component';
 import { ProfileAllUsersComponent } from 'app/profile-allusers/profile-allusers.component';
-import { TapeComponent } from 'app/tape/tape.component';
+
 import { PostComponent } from 'app/post/post.component';
 import { GetPostsComponent } from 'app/get-posts/get-posts.component';
 
@@ -44,7 +44,7 @@ import { DataService } from './data.service';
     AppComponent, RegistrComponent, HeaderComponent, EditUserComponent, UserFormComponent,
     AllUsersComponent, AddFriendComponent, FriendsListComponent, DeleteFriendsComponent,
     ChatComponent, UploadComponent, AddPhotosComponent, GalleryComponent, DeletePhotoComponent,
-    ProfileComponent, ProfileFriendComponent, ProfileAllUsersComponent, TapeComponent, PostComponent, GetPostsComponent],
+    ProfileComponent, ProfileFriendComponent, ProfileAllUsersComponent, PostComponent, GetPostsComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -65,8 +65,7 @@ import { DataService } from './data.service';
       { path: 'gallery/deletephoto/:id', component: DeletePhotoComponent },
       { path: 'profile', component: ProfileComponent },
       { path: 'friendslist/profilefriend/:id', component: ProfileFriendComponent },
-      { path: 'allusers/profileallusers/:id', component: ProfileAllUsersComponent },
-      { path: 'tape', component: TapeComponent },
+      { path: 'allusers/profileallusers/:id', component: ProfileAllUsersComponent },      
       { path: 'post', component: PostComponent },
       { path: 'get-posts', component: GetPostsComponent },
     ])
