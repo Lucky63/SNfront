@@ -14,10 +14,12 @@ export class GetPostsComponent implements OnInit {
   user: User;
   posts: UserPost[];
 
-  totalPage: number[] = [];//Общее количество страниц
+ 
   page: number = 1;//Первая страница
   size: number = 5;//Количество строк на странице
-  
+  count: number;
+  res: number;
+  totalPage: number[] = [];//Общее количество страниц
 
   constructor(private dataService: DataService) { }
 
@@ -36,7 +38,11 @@ export class GetPostsComponent implements OnInit {
     this.dataService.getPosts( this.page, this.size,)
       .subscribe((response: PostsViewModel) => {
         this.posts = response.userPostViewModels;
-        this.totalPage = response.totalPage;
+        this.count = response.count;
+        this.res = Math.ceil(this.count / this.size);
+        for (let i = 1; i <= this.res; i++) {
+          this.totalPage.push(i);
+        }
       }, err => {
         console.log(err)
       });
