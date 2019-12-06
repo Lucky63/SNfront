@@ -26,7 +26,7 @@ export class PostComponent implements OnInit {
       });
   }
 
-  savePost(post: string) {
-    this.dataService.saveUserPost(post).subscribe(data => this.router.navigateByUrl("/"))
+  savePost(postText) {
+    this.dataService.saveUserPost(postText).subscribe(data => this.router.navigateByUrl("/"))
   }
 }
