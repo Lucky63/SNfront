@@ -1,12 +1,14 @@
 <header-app></header-app>
-<div *ngIf="!isUserAuthenticated()" style="color:black;">
-  <h1>Вы вошли как Анонимный пользователь</h1>
-</div>
-<br>
-<div *ngIf="isUserAuthenticated()" style="color:black;">
-  <h2>
-    <app-customers></app-customers>
-  </h2>
-</div>
-<br>
-<button routerLink="/allusers">All Users</button>
+<body>
+  <div *ngIf="!isUserAuthenticated()" style="color:black;">
+    <h1>Вы вошли как Анонимный пользователь</h1>
+  </div>
+  <br>
+  <div *ngIf="isUserAuthenticated()" style="color:black;">
+    <h2>
+      <app-customers></app-customers>
+    </h2>
+  </div>
+  <br>
+  <button routerLink="/allusers">All Users</button>
+</body>

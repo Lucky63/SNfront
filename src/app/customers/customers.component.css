@@ -8,3 +8,9 @@ aside {
   width: 30%;
   bottom:unset;
 }
+
+.blocktext {
+  margin-left: auto;
+  margin-right: auto;
+  width: 6em
+}

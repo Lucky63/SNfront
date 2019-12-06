@@ -17,7 +17,7 @@ export class DataService {
   // CustomersController
   getIdentiUser() {
     let token = localStorage.getItem("jwt");
-    return this.http.get(this.urlUser + "/" + "getidentityasync", {
+    return this.http.get(this.urlUser + "/" + "getidentity", {
       headers: new HttpHeaders({
         "Authorization": "Bearer " + token,
         "Content-Type": "application/json"
@@ -39,7 +39,7 @@ export class DataService {
 
   getFriend(id: number) {
     let token = localStorage.getItem("jwt");
-    return this.http.get(this.urlUser + "/" + "addfriendasync" +"/" + id , {
+    return this.http.get(this.urlUser + "/" + "addfriend" +"/" + id , {
       headers: new HttpHeaders({
         "Authorization": "Bearer " + token,
         "Content-Type": "application/json"
@@ -49,7 +49,7 @@ export class DataService {
 
   deleteFriend(id: number) {
     let token = localStorage.getItem("jwt");
-    return this.http.delete(this.urlUser + "/" + "deletefriendasync" + "/" + id, {
+    return this.http.delete(this.urlUser + "/" + "deletefriend" + "/" + id, {
       headers: new HttpHeaders({
         "Authorization": "Bearer " + token,
         "Content-Type": "application/json"
@@ -59,7 +59,7 @@ export class DataService {
 
   editIdentityUser(user: User) {
 
-    return this.http.put(this.urlUser + "/" + "editasync", user, {
+    return this.http.put(this.urlUser + "/" + "edit", user, {
       headers: new HttpHeaders({        
         "Content-Type": "application/json"
       })
@@ -68,7 +68,7 @@ export class DataService {
 
   getUserForMessage(id:number) {
     let token = localStorage.getItem("jwt");
-    return this.http.get(this.urlUser + "/" + "getuserformessageasync" + "/" + id, {
+    return this.http.get(this.urlUser + "/" + "getuserformessage" + "/" + id, {
       headers: new HttpHeaders({
         "Authorization": "Bearer " + token,
         "Content-Type": "application/json"
@@ -78,7 +78,7 @@ export class DataService {
 
   getUserForProfile(id: number) {
     let token = localStorage.getItem("jwt");
-    return this.http.get(this.urlUser + "/" + "GetUserForProfileAsync" + "/" + id, {
+    return this.http.get(this.urlUser + "/" + "GetUserForProfile" + "/" + id, {
       headers: new HttpHeaders({
         "Authorization": "Bearer " + token,
         "Content-Type": "application/json"
@@ -88,7 +88,7 @@ export class DataService {
 
   saveUserPost(id: number, post: string) {
     let token = localStorage.getItem("jwt");
-    return this.http.post(this.urlUser + "/" + "SaveUserPostAsync" + "/" + id + "/" + post, {
+    return this.http.post(this.urlUser + "/" + "SaveUserPost" + "/" + id + "/" + post, {
       headers: new HttpHeaders({
         "Authorization": "Bearer " + token,
         "Content-Type": "application/json"
@@ -98,7 +98,7 @@ export class DataService {
 
   getPosts( page: number, size: number) {
     let token = localStorage.getItem("jwt");
-    return this.http.get(this.urlUser + "/" + "GetAllPostsAsync"  + "/" + page + "/" + size, {
+    return this.http.get(this.urlUser + "/" + "GetAllPosts"  + "/" + page + "/" + size, {
       headers: new HttpHeaders({
         "Authorization": "Bearer " + token,
         "Content-Type": "application/json"
