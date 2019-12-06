@@ -8,7 +8,8 @@ import { resetFakeAsyncZone } from '@angular/core/testing';
 
 @Component({
   selector: 'app-get-posts',
-  templateUrl: './get-posts.component.html'
+  templateUrl: './get-posts.component.html',
+  styleUrls: ['./get-posts.component.css']
 })
 export class GetPostsComponent implements OnInit {
   user: User;

@@ -1,10 +1,12 @@
-<app-post></app-post>
+<body>
+  <app-post></app-post>
   <div *ngFor="let p of posts">
     <h6>{{p.timeOfPublication | date:'MM-dd-yyyy @ hh:mma'}}:<strong>{{p.authorPost}}</strong></h6>
     <h5>{{p.post}}</h5>
   </div>
 
-<input type="button" value="Prev" (click)="prevButAndAll(page-1)" [disabled]="page === 1" class="btn btn-default" />
-<input type="button" *ngFor="let i of totalPage" [disabled]="i === page" value="{{i}}" (click)="prevButAndAll(i)" class="btn btn-default">
-<input type="button" value="Next" (click)="nextBut(page+1)" [disabled]="page === totalPage.length" class="btn btn-default" />
-<input type="button" value="end" (click)="endpage(totalPage.length)" [disabled]="page === totalPage.length" class="btn btn-default" />
+  <input type="button" value="Prev" (click)="prevButAndAll(page-1)" [disabled]="page === 1" class="btn btn-default" />
+  <input type="button" *ngFor="let i of totalPage" [disabled]="i === page" value="{{i}}" (click)="prevButAndAll(i)" class="btn btn-default">
+  <input type="button" value="Next" (click)="nextBut(page+1)" [disabled]="page === totalPage.length" class="btn btn-default" />
+  <input type="button" value="end" (click)="endpage(totalPage.length)" [disabled]="page === totalPage.length" class="btn btn-default" />
+</body>

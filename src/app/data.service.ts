@@ -86,9 +86,9 @@ export class DataService {
     });
   }
 
-  saveUserPost(id: number, post: string) {
+  saveUserPost(post: string) {
     let token = localStorage.getItem("jwt");
-    return this.http.post(this.urlUser + "/" + "SaveUserPost" + "/" + id + "/" + post, {
+    return this.http.get(this.urlUser + "/" + "SaveUserPost" + "/" + post, {
       headers: new HttpHeaders({
         "Authorization": "Bearer " + token,
         "Content-Type": "application/json"

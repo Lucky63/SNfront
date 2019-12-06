@@ -27,6 +27,6 @@ export class PostComponent implements OnInit {
   }
 
   savePost(post: string) {
-    this.dataService.saveUserPost(this.user.id, post).subscribe(data => this.router.navigateByUrl("/"))
+    this.dataService.saveUserPost(post).subscribe(data => this.router.navigateByUrl("/"))
   }
 }
