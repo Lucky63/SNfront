@@ -27,7 +27,7 @@ export class DataService {
 
   getAllUser() {
     let token = localStorage.getItem("jwt");
-    return this.http.get(this.urlUser + "/" + "getallasync", {
+    return this.http.get(this.urlUser + "/" + "getall", {
       headers: new HttpHeaders({
         "Authorization": "Bearer " + token,
         "Content-Type": "application/json"
