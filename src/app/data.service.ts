@@ -86,9 +86,9 @@ export class DataService {
     });
   }
 
-  saveUserPost(postText ) {
+  saveLike(likeid ) {
     let token = localStorage.getItem("jwt");
-    return this.http.post(this.urlUser + "/" + "SaveUserPost", { text: postText  }, {
+    return this.http.post(this.urlUser + "/" + "SaveLike", { likeid: likeid  }, {
       headers: new HttpHeaders({
         "Authorization": "Bearer " + token,
         "Content-Type": "application/json"
@@ -99,6 +99,16 @@ export class DataService {
   getPosts( page: number, size: number) {
     let token = localStorage.getItem("jwt");
     return this.http.get(this.urlUser + "/" + "GetAllPosts"  + "/" + page + "/" + size, {
+      headers: new HttpHeaders({
+        "Authorization": "Bearer " + token,
+        "Content-Type": "application/json"
+      })
+    });
+  }
+
+  saveUserPost(postText) {
+    let token = localStorage.getItem("jwt");
+    return this.http.post(this.urlUser + "/" + "SaveUserPost", { text: postText }, {
       headers: new HttpHeaders({
         "Authorization": "Bearer " + token,
         "Content-Type": "application/json"
