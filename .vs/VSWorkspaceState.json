@@ -3,14 +3,14 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\add-friend",
+    "\\src\\app\\add-photos",
+    "\\src\\app\\all-users",
     "\\src\\app\\customers",
-    "\\src\\app\\friends-list",
-    "\\src\\app\\home",
-    "\\src\\app\\login",
-    "\\src\\app\\registr",
-    "\\src\\app\\tape"
+    "\\src\\app\\delete-photo",
+    "\\src\\app\\gallery",
+    "\\src\\app\\get-posts",
+    "\\src\\app\\post"
   ],
-  "SelectedNode": "\\src\\app\\tape\\tape.component.ts",
+  "SelectedNode": "\\src\\app\\add-photos\\add-photos.component.ts",
   "PreviewInSolutionExplorer": false
 }

@@ -14,17 +14,12 @@
 <br />
 <label>Фотографии друга</label>
 <br />
-<!--<div *ngIf="user">
-  <span *ngFor="let p of user.photos">   
-  <img src="http://localhost:5000/{{p.path}}" style="width:400px; height:300px;">    
-  </span>  
-</div>-->
 
 <table *ngIf="user" class="table table-striped">
   <thead>
     <tr>
-      <th>Фото</th>
       <th></th>
+      <th>Лайков: </th>
       <th></th>
     </tr>
   </thead>
@@ -34,7 +29,8 @@
              <img src="http://localhost:5000/{{p.path}}" style="width:400px; height:300px;">
           </span>
       </td>
-      <td><a [routerLink]="['like', p.id]" class="btn btn-sm btn-primary">Like</a></td>
+      <td><h1>{{p.likeCounter}}</h1></td>
+      <td><a [routerLink]="['like', p.id]" class="btn btn-sm btn-primary">Like</a></td>      
     </tr>
   </tbody>
 </table>
