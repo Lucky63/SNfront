@@ -18,13 +18,15 @@ export class ProfileFriendComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    this.dataService.getUserForProfile(this.id)
-      .subscribe((response: User) => {
-        this.user = response;
-      }, err => {
-        console.log(err)
-      });
+    if (this.id !== NaN) {
+      this.dataService.getUserForProfile(this.id)
+        .subscribe((response: User) => {
+          this.user = response;
+        }, err => {
+          console.log(err)
+        });
+    }
+    
 
   }
 

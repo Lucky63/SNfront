@@ -72,7 +72,7 @@ import { DataService } from './data.service';
       { path: 'friendslist/profilefriend/:id/like/:id', component: LikeComponent },
     ])
   ],
-  providers: [JwtHelper, AuthGuard, DataService],
+  providers: [JwtHelper, AuthGuard, DataService, ProfileFriendComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
