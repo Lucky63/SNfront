@@ -88,7 +88,7 @@ export class DataService {
 
   saveLike(likeid:number ) {
     let token = localStorage.getItem("jwt");
-    return this.http.post(this.urlUser + "/" + "LikePhoto", likeid, {
+    return this.http.post(this.urlUser + "/" + "Like", likeid, {
       headers: new HttpHeaders({
         "Authorization": "Bearer " + token,
         "Content-Type": "application/json"
