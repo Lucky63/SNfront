@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { JwtHelper } from 'angular2-jwt'
-
+import { UploadComponent } from 'app/upload/upload.component';
 import { HomeComponent } from 'app/home/home.component';
 import { LoginComponent } from 'app/login/login.component';
 import { CustomersComponent } from 'app/customers/customers.component';
@@ -44,7 +44,7 @@ import { DataService } from './data.service';
     CustomersComponent,
     AppComponent, RegistrComponent, HeaderComponent, EditUserComponent, UserFormComponent,
     AllUsersComponent, AddFriendComponent, FriendsListComponent, DeleteFriendsComponent,
-    ChatComponent, AddPhotosComponent, GalleryComponent, DeletePhotoComponent,
+    ChatComponent, AddPhotosComponent, UploadComponent, GalleryComponent, DeletePhotoComponent,
     ProfileComponent, ProfileFriendComponent, ProfileAllUsersComponent, PostComponent, GetPostsComponent, LikeComponent],
   imports: [
     BrowserModule,
