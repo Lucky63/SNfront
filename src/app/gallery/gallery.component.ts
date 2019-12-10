@@ -11,7 +11,7 @@ import { GetPhotosViewModel } from 'app/getPhotosViewModel';
 })
 export class GalleryComponent implements OnInit {
   album: Photos[];
-
+  id: number;
   page: number = 1;//Первая страница
   size: number = 5;//Количество строк на странице
   count: number;
@@ -21,7 +21,16 @@ export class GalleryComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    this.dataService.getPhotosIdentityUser(this.page, this.size)
+    this.dataService.GetIdentityUserId().subscribe((response: number) => {
+      this.id = response;
+      this.getphotos();
+    }, err => {
+      console.log(err)
+    });    
+  }
+
+  getphotos() {
+    this.dataService.getUserPhotos(this.id, this.page, this.size)
       .subscribe((response: GetPhotosViewModel) => {
         this.album = response.photos;
         this.count = response.count;
@@ -33,10 +42,11 @@ export class GalleryComponent implements OnInit {
         console.log(err)
       });
   }
+  
 
   nextBut(num: number) {
     if (num < (this.totalPage.length) + 1) {
-      this.dataService.getPhotosIdentityUser(num, this.size)
+      this.dataService.getUserPhotos(this.id, num, this.size)
         .subscribe((response: GetPhotosViewModel) => {
           this.album = response.photos;          
         }, err => {
@@ -49,7 +59,7 @@ export class GalleryComponent implements OnInit {
   //Предидущая страница
   prevButAndAll(numprev: number) {
     if (numprev > 0) {
-      this.dataService.getPhotosIdentityUser(numprev, this.size)
+      this.dataService.getUserPhotos(this.id, numprev, this.size)
         .subscribe((response: GetPhotosViewModel) => {
           this.album = response.photos;
         }, err => {
@@ -61,7 +71,7 @@ export class GalleryComponent implements OnInit {
 
   endpage(set: number) {
 
-    this.dataService.getPhotosIdentityUser(set, this.size)
+    this.dataService.getUserPhotos(this.id, set, this.size)
       .subscribe((response: GetPhotosViewModel) => {
         this.album = response.photos;
       }, err => {
