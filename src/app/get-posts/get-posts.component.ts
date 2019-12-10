@@ -14,6 +14,7 @@ import { resetFakeAsyncZone } from '@angular/core/testing';
 export class GetPostsComponent implements OnInit {
   user: User;
   posts: UserPost[];
+  
 
  
   page: number = 1;//Первая страница

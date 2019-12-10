@@ -5,7 +5,8 @@ export class UserPost {
     public id?: number,
     public authorPost?: string,
     public post?: string,
-    public timeOfPublication?: Data
+    public timeOfPublication?: Data,
+    public likeCounter?: number,
   ) { }
 
 }

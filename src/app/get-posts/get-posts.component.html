@@ -1,8 +1,9 @@
 <body>
   <app-post></app-post>
   <div *ngFor="let p of posts">
-    <h6>{{p.timeOfPublication | date:'MM-dd-yyyy @ hh:mma'}}:<strong>{{p.authorPost}}</strong></h6>
-    <h5>{{p.post}}</h5>
+    <h4>{{p.timeOfPublication | date:'MM-dd-yyyy @ hh:mma'}}:<strong>{{p.authorPost}}</strong></h4>
+    <h2>{{p.post}}</h2>
+    <div><a [routerLink]="['like', p.id]" class="btn btn-sm btn-primary">Like {{p.likeCounter}}</a></div>    
   </div>
 
   <input type="button" value="Prev" (click)="prevButAndAll(page-1)" [disabled]="page === 1" class="btn btn-default" />

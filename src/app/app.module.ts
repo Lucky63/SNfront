@@ -70,6 +70,7 @@ import { DataService } from './data.service';
       { path: 'post', component: PostComponent },
       { path: 'get-posts', component: GetPostsComponent },
       { path: 'friendslist/profilefriend/:id/like/:id', component: LikeComponent },
+      { path: 'like/:id', component: LikeComponent },
     ])
   ],
   providers: [JwtHelper, AuthGuard, DataService, ProfileFriendComponent],
