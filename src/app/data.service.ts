@@ -14,7 +14,17 @@ export class DataService {
   
   constructor(private http: HttpClient) {
   }  
-  // CustomersController
+   //UserController
+  getPhotosIdentityUser(page:number = 1, size:number=5) {
+    let token = localStorage.getItem("jwt");
+    return this.http.get(this.urlUser + "/" + "GetPhotosIdentityUser" + "/" + page + "/" +size, {
+      headers: new HttpHeaders({
+        "Authorization": "Bearer " + token,
+        "Content-Type": "application/json"
+      })
+    });
+  }
+
   getIdentiUser() {
     let token = localStorage.getItem("jwt");
     return this.http.get(this.urlUser + "/" + "getidentity", {
@@ -35,7 +45,7 @@ export class DataService {
     });
   }
 
-  //UserController
+
 
   getFriend(id: number) {
     let token = localStorage.getItem("jwt");

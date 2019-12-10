@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'app/user';
 import { DataService } from '../data.service';
+import { Photos } from 'app/photos';
+import { GetPhotosViewModel } from 'app/getPhotosViewModel';
 
 @Component({
   selector: 'app-gallery',
@@ -8,16 +10,63 @@ import { DataService } from '../data.service';
   
 })
 export class GalleryComponent implements OnInit {
-  user: User;
+  album: Photos[];
+
+  page: number = 1;//Первая страница
+  size: number = 5;//Количество строк на странице
+  count: number;
+  res: number;
+  totalPage: number[] = [];//Общее количество страниц
 
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    this.dataService.getIdentiUser()
-      .subscribe((response: User) => {
-        this.user = response;
+    this.dataService.getPhotosIdentityUser(this.page, this.size)
+      .subscribe((response: GetPhotosViewModel) => {
+        this.album = response.photos;
+        this.count = response.count;
+        this.res = Math.ceil(this.count / this.size);
+        for (let i = 1; i <= this.res; i++) {
+          this.totalPage.push(i);
+        }
       }, err => {
         console.log(err)
       });
+  }
+
+  nextBut(num: number) {
+    if (num < (this.totalPage.length) + 1) {
+      this.dataService.getPhotosIdentityUser(num, this.size)
+        .subscribe((response: GetPhotosViewModel) => {
+          this.album = response.photos;          
+        }, err => {
+          console.log(err)
+        });
+      this.page = num;
+    }
+  }
+
+  //Предидущая страница
+  prevButAndAll(numprev: number) {
+    if (numprev > 0) {
+      this.dataService.getPhotosIdentityUser(numprev, this.size)
+        .subscribe((response: GetPhotosViewModel) => {
+          this.album = response.photos;
+        }, err => {
+          console.log(err)
+        });
+      this.page = numprev;
+    }
+  }
+
+  endpage(set: number) {
+
+    this.dataService.getPhotosIdentityUser(set, this.size)
+      .subscribe((response: GetPhotosViewModel) => {
+        this.album = response.photos;
+      }, err => {
+        console.log(err)
+      });
+    this.page = set;
   }
 }

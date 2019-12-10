@@ -1,16 +1,20 @@
 <button routerLink="/">На главную</button>
 <app-add-photos></app-add-photos>
-<table class="table table-striped" *ngIf="user">
+<table class="table table-striped" *ngIf="album">
   <thead>
     <tr>
-      <th>Имя</th>      
+      <th>Имя</th>
       <th>Операции</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let p of user.photos">
-      <td><img src="http://localhost:5000/{{p.path}}" style="width:400px; height:300px;"></td>      
+    <tr *ngFor="let p of album">
+      <td><img src="http://localhost:5000/{{p.photoPath}}" style="width:400px; height:300px;"></td>
       <td><a [routerLink]="['deletephoto', p.id]" class="btn btn-sm btn-primary">Удалить</a></td>
     </tr>
   </tbody>
 </table>
+<input type="button" value="Prev" (click)="prevButAndAll(page-1)" [disabled]="page === 1" class="btn btn-default" />
+<input type="button" *ngFor="let i of totalPage" [disabled]="i === page" value="{{i}}" (click)="prevButAndAll(i)" class="btn btn-default">
+<input type="button" value="Next" (click)="nextBut(page+1)" [disabled]="page === totalPage.length" class="btn btn-default" />
+<input type="button" value="end" (click)="endpage(totalPage.length)" [disabled]="page === totalPage.length" class="btn btn-default" />
