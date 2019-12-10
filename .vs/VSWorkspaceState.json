@@ -3,14 +3,8 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\add-photos",
-    "\\src\\app\\all-users",
-    "\\src\\app\\customers",
-    "\\src\\app\\delete-photo",
-    "\\src\\app\\gallery",
-    "\\src\\app\\get-posts",
-    "\\src\\app\\post"
+    "\\src\\app\\upload"
   ],
-  "SelectedNode": "\\src\\app\\add-photos\\add-photos.component.ts",
+  "SelectedNode": "\\src\\app\\app.module.ts",
   "PreviewInSolutionExplorer": false
 }

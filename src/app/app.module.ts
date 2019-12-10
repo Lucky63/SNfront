@@ -20,7 +20,7 @@ import { AddFriendComponent } from 'app/add-friend/add-friend.Component';
 import { FriendsListComponent } from 'app/friends-list/friends-list.Component';
 import { DeleteFriendsComponent } from 'app/delete-friends/delete-friends.Component';
 import { ChatComponent } from 'app/chat/chat.Component';
-import { UploadComponent } from 'app/upload/upload.component';
+
 import { AddPhotosComponent } from 'app/add-photos/add-photos.component';
 import { GalleryComponent } from 'app/gallery/gallery.component';
 import { DeletePhotoComponent } from 'app/delete-photo/delete-photo.component';
@@ -44,7 +44,7 @@ import { DataService } from './data.service';
     CustomersComponent,
     AppComponent, RegistrComponent, HeaderComponent, EditUserComponent, UserFormComponent,
     AllUsersComponent, AddFriendComponent, FriendsListComponent, DeleteFriendsComponent,
-    ChatComponent, UploadComponent, AddPhotosComponent, GalleryComponent, DeletePhotoComponent,
+    ChatComponent, AddPhotosComponent, GalleryComponent, DeletePhotoComponent,
     ProfileComponent, ProfileFriendComponent, ProfileAllUsersComponent, PostComponent, GetPostsComponent, LikeComponent],
   imports: [
     BrowserModule,
