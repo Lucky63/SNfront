@@ -15,6 +15,17 @@ export class DataService {
   constructor(private http: HttpClient) {
   }  
    //UserController
+
+  GetFriends(id: number, page: number = 1, size: number = 5) {
+    let token = localStorage.getItem("jwt");
+    return this.http.get(this.urlUser + "/" + "GetFriends" + "/" + id + "/" + page + "/" + size, {
+      headers: new HttpHeaders({
+        "Authorization": "Bearer " + token,
+        "Content-Type": "application/json"
+      })
+    });
+  }
+
   GetIdentityUserId() {
     let token = localStorage.getItem("jwt");
     return this.http.get(this.urlUser + "/" + "GetIdentityUserId", {

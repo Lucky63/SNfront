@@ -2,7 +2,7 @@
 
 <button routerLink="/" class="btn btn-sm btn-primary">На главную</button>
 <h1></h1>
-<div *ngIf="user">
+<div *ngIf="friends">
   <table class="table table-striped">
     <thead>
       <tr>
@@ -14,7 +14,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let p of user.friends">
+      <tr *ngFor="let p of friends">
         <td>{{p?.userName}}</td>
         <td>{{p?.lastName}}</td>
         <td><a [routerLink]="['delfriend', p.id]" class="btn btn-sm btn-primary">Удалить</a></td>
@@ -23,4 +23,8 @@
       </tr>
     </tbody>
   </table>
- </div>
+</div>
+<input type="button" value="Prev" (click)="prevButAndAll(page-1)" [disabled]="page === 1" class="btn btn-default" />
+<input type="button" *ngFor="let i of totalPage" [disabled]="i === page" value="{{i}}" (click)="prevButAndAll(i)" class="btn btn-default">
+<input type="button" value="Next" (click)="nextBut(page+1)" [disabled]="page === totalPage.length" class="btn btn-default" />
+<input type="button" value="end" (click)="endpage(totalPage.length)" [disabled]="page === totalPage.length" class="btn btn-default" />
