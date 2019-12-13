@@ -56,9 +56,9 @@ export class DataService {
     }); 
   }
 
-  getAllUser() {
+  getAllUser(page: number, size: number) {
     let token = localStorage.getItem("jwt");
-    return this.http.get(this.urlUser + "/" + "getall", {
+    return this.http.get(this.urlUser + "/" + "getall" + "/" + page + "/" + size, {
       headers: new HttpHeaders({
         "Authorization": "Bearer " + token,
         "Content-Type": "application/json"
