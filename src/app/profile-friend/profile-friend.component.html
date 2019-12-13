@@ -24,13 +24,18 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let p of user.photos">
-      <td><span>
-             <img src="http://localhost:5000/{{p.path}}" style="width:400px; height:300px;">
-          </span>
+    <tr *ngFor="let p of album">
+      <td>
+        <span>
+          <img src="http://localhost:5000/{{p.photoPath}}" style="width:400px; height:300px;">
+        </span>
       </td>
       <td>{{p.timeOfPublication}}</td>
-      <td><a [routerLink]="['like', p.id]" class="btn btn-sm btn-primary">Like {{p.likeCounter}}</a></td>      
+      <td><a [routerLink]="['like', p.id]" class="btn btn-sm btn-primary">Like {{p.likeCounter}}</a></td>
     </tr>
   </tbody>
 </table>
+<input type="button" value="Prev" (click)="prevButAndAll(page-1)" [disabled]="page === 1" class="btn btn-default" />
+<input type="button" *ngFor="let i of totalPage" [disabled]="i === page" value="{{i}}" (click)="prevButAndAll(i)" class="btn btn-default">
+<input type="button" value="Next" (click)="nextBut(page+1)" [disabled]="page === totalPage.length" class="btn btn-default" />
+<input type="button" value="end" (click)="endpage(totalPage.length)" [disabled]="page === totalPage.length" class="btn btn-default" />

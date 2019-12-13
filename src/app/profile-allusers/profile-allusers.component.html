@@ -12,11 +12,4 @@
   <strong>Город: <ins>{{user.city}}</ins> </strong>
 </div>
 <br />
-<label>Фотографии друга</label>
-<br />
-<div *ngIf="user">
-  <span *ngFor="let p of user.photos">
-    <img src="http://localhost:5000/{{p.path}}" style="width:400px; height:300px;">
-  </span>
-</div>
 
