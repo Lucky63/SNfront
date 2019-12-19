@@ -48,7 +48,7 @@ export class DataService {
 
   getIdentiUser() {
     let token = localStorage.getItem("jwt");
-    return this.http.get(this.urlUser + "/" + "getidentity", {
+    return this.http.get(this.urlUser + "/" + "GetIdentityUser", {
       headers: new HttpHeaders({
         "Authorization": "Bearer " + token,
         "Content-Type": "application/json"
