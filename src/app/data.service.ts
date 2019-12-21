@@ -158,9 +158,9 @@ export class DataService {
     });
   }
 
-  getMessages(id: number, Friendid: number) {
+  getMessages(id: number, friendid: number, page:number = 1, size:number = 5) {
     let token = localStorage.getItem("jwt");
-    return this.http.get(this.urlMessage + "/" + "getmessagesasync" + "/" + id + "/" + Friendid, {
+    return this.http.get(this.urlMessage + "/" + "GetMessages" + "/" + id + "/" + friendid + "/" + page + "/" + size, {
       headers: new HttpHeaders({
         "Authorization": "Bearer " + token,
         "Content-Type": "application/json"

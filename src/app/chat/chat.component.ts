@@ -4,6 +4,7 @@ import * as signalR from '@aspnet/signalr';
 import { User } from 'app/user';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from 'app/data.service';
+import { GetMessages } from '../getMessages';
 
 @Component({
   selector: 'app-chat',
@@ -23,6 +24,12 @@ export class ChatComponent implements OnInit {
   messages: string[] = [];  
   bool: boolean = false;
   dateTime = new Date().toJSON().slice(0, 10).replace(/-/g, '/');
+
+  page: number = 1;//Первая страница
+  size: number = 5;//Количество строк на странице
+  count: number;
+  res: number;
+  totalPage: number[] = [];//Общее количество страниц
   
   
   public sendMessage(): void {    
@@ -75,11 +82,49 @@ export class ChatComponent implements OnInit {
   }
   
   public getmessages() {
-    this.dataService.getMessages(this.user.id, this.id).subscribe((response: string[]) => {
-      this.messages = response;
+    this.dataService.getMessages(this.user.id, this.id, this.page, this.size).subscribe((response: GetMessages) => {
+      this.messages = response.messages;
+      this.count = response.count;
+      this.res = Math.ceil(this.count / this.size);
+      for (let i = 1; i <= this.res; i++) {
+        this.totalPage.push(i);
+      }
     }, err => {
       console.log(err)
     });
+  }
+
+  nextBut(num: number) {
+    if (num < (this.totalPage.length) + 1) {
+      this.dataService.getMessages(this.user.id, this.id, num, this.size).subscribe((response: GetMessages) => {
+        this.messages = response.messages;
+        }, err => {
+          console.log(err)
+        });
+      this.page = num;
+    }
+  }
+
+  //Предидущая страница
+  prevButAndAll(numprev: number) {
+    if (numprev > 0) {
+      this.dataService.getMessages(this.user.id, this.id, numprev, this.size).subscribe((response: GetMessages) => {
+        this.messages = response.messages;
+        }, err => {
+          console.log(err)
+        });
+      this.page = numprev;
+    }
+  }
+
+  endpage(set: number) {
+
+    this.dataService.getMessages(this.user.id, this.id, set, this.size).subscribe((response: GetMessages) => {
+      this.messages = response.messages;
+      }, err => {
+        console.log(err)
+      });
+    this.page = set;
   }
 }
 
