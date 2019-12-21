@@ -171,14 +171,14 @@ export class DataService {
 
   //FileController
   upladFile(id: number, formData:any ) {
-    return this.http.post(this.urlFile + "/" + "UploadPhotoAsync" + "/" + id, formData, { reportProgress: true, observe: 'events' });
+    return this.http.post(this.urlFile + "/" + "UploadPhoto" + "/" + id, formData, { reportProgress: true, observe: 'events' });
   }
 
   deletePhoto(id: number) {
-    return this.http.delete(this.urlFile + "/" + "DeletePhotoAsync" + "/" + id);
+    return this.http.delete(this.urlFile + "/" + "DeletePhoto" + "/" + id);
   }
 
   upload(formData: any) {
-    return this.http.post(this.urlFile + "/" + "Upload", formData, { reportProgress: true, observe: 'events' });
+    return this.http.post(this.urlFile + "/" + "UploadAvatar", formData, { reportProgress: true, observe: 'events' });
   }
 }
