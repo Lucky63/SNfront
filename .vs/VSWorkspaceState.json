@@ -7,6 +7,6 @@
     "\\src\\app\\gallery",
     "\\src\\app\\profile-friend"
   ],
-  "SelectedNode": "\\src\\app\\data.service.ts",
+  "SelectedNode": "\\src\\app\\friends-list\\friends-list.component.html",
   "PreviewInSolutionExplorer": false
 }

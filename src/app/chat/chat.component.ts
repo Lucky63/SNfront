@@ -5,6 +5,7 @@ import { User } from 'app/user';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from 'app/data.service';
 import { GetMessages } from '../getMessages';
+import { Message } from '../message';
 
 @Component({
   selector: 'app-chat',
@@ -21,7 +22,10 @@ export class ChatComponent implements OnInit {
   user: User;  
   userForMessage: User; 
   message:string = '';
-  messages: string[] = [];  
+  messages: Message[] = [];
+  messagesFormatList: string[] = [];
+  senderName: string;
+  recipientName: string;
   bool: boolean = false;
   dateTime = new Date().toJSON().slice(0, 10).replace(/-/g, '/');
 
@@ -41,8 +45,7 @@ export class ChatComponent implements OnInit {
   }
 
   ngOnInit() {
-    let token = localStorage.getItem("jwt");
-    //this.nick = window.prompt('Your name:', 'John');
+    let token = localStorage.getItem("jwt");    
     this.dataService.getUserForMessage(this.id).subscribe((response: User) => {
        this.userForMessage = response;       
       }, err => {
@@ -67,10 +70,10 @@ export class ChatComponent implements OnInit {
       .then(() => console.log('Connection started!'))
       .catch(err => console.log('Error while establishing connection :('));
     
-    this._hubConnection.on('Receive', (dateTime: string, nick: string, receivedMessage: string) => {
+    this._hubConnection.on('Receive', (dateTimenow: string, nick: string, receivedMessage: string) => {
       if (this.userForMessage.userName == nick || this.user.userName==nick) {
-        const text = `${dateTime}: ${nick}: ${receivedMessage}`;
-        this.messages.push(text);
+        const text=`${dateTimenow}: ${nick}: ${receivedMessage}`;
+        this.messagesFormatList.push(text);
       }      
     });      
   }
@@ -83,12 +86,25 @@ export class ChatComponent implements OnInit {
   
   public getmessages() {
     this.dataService.getMessages(this.user.id, this.id, this.page, this.size).subscribe((response: GetMessages) => {
+      this.senderName = response.senderName;
+      this.recipientName = response.recipientName;
       this.messages = response.messages;
+      
+      for (let g of this.messages) {
+        if (g.userId == this.user.id && g.friendId == this.id) {
+          this.messagesFormatList.push(`${g.dateTime}: ${this.senderName}: ${g.sentMessage}`)
+        }
+        if (g.friendId == this.user.id && g.userId == this.id) {
+          this.messagesFormatList.push(`${g.dateTime}: ${this.recipientName}: ${g.sentMessage}`)
+        }
+      }
+
       this.count = response.count;
       this.res = Math.ceil(this.count / this.size);
       for (let i = 1; i <= this.res; i++) {
         this.totalPage.push(i);
       }
+     
     }, err => {
       console.log(err)
     });
@@ -98,6 +114,17 @@ export class ChatComponent implements OnInit {
     if (num < (this.totalPage.length) + 1) {
       this.dataService.getMessages(this.user.id, this.id, num, this.size).subscribe((response: GetMessages) => {
         this.messages = response.messages;
+        while (this.messagesFormatList.length) {
+          this.messagesFormatList.pop();
+        }
+        for (let g of this.messages) {
+          if (g.userId == this.user.id && g.friendId == this.id) {
+            this.messagesFormatList.push(`${g.dateTime}: ${this.senderName}: ${g.sentMessage}`)
+          }
+          if (g.friendId == this.user.id && g.userId == this.id) {
+            this.messagesFormatList.push(`${g.dateTime}: ${this.recipientName}: ${g.sentMessage}`)
+          }
+        }
         }, err => {
           console.log(err)
         });
@@ -110,6 +137,17 @@ export class ChatComponent implements OnInit {
     if (numprev > 0) {
       this.dataService.getMessages(this.user.id, this.id, numprev, this.size).subscribe((response: GetMessages) => {
         this.messages = response.messages;
+        while (this.messagesFormatList.length) {
+          this.messagesFormatList.pop();
+        }
+        for (let g of this.messages) {
+          if (g.userId == this.user.id && g.friendId == this.id) {
+            this.messagesFormatList.push(`${g.dateTime}: ${this.senderName}: ${g.sentMessage}`)
+          }
+          if (g.friendId == this.user.id && g.userId == this.id) {
+            this.messagesFormatList.push(`${g.dateTime}: ${this.recipientName}: ${g.sentMessage}`)
+          }
+        }
         }, err => {
           console.log(err)
         });
@@ -121,6 +159,17 @@ export class ChatComponent implements OnInit {
 
     this.dataService.getMessages(this.user.id, this.id, set, this.size).subscribe((response: GetMessages) => {
       this.messages = response.messages;
+      while (this.messagesFormatList.length) {
+        this.messagesFormatList.pop();
+      }
+      for (let g of this.messages) {
+        if (g.userId == this.user.id && g.friendId == this.id) {
+          this.messagesFormatList.push(`${g.dateTime}: ${this.senderName}: ${g.sentMessage}`)
+        }
+        if (g.friendId == this.user.id && g.userId == this.id) {
+          this.messagesFormatList.push(`${g.dateTime}: ${this.recipientName}: ${g.sentMessage}`)
+        }
+      }
       }, err => {
         console.log(err)
       });
