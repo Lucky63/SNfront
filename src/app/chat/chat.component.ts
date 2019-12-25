@@ -92,10 +92,10 @@ export class ChatComponent implements OnInit {
       
       for (let g of this.messages) {
         if (g.userId == this.user.id && g.friendId == this.id) {
-          this.messagesFormatList.push(`${g.dateTime}: ${this.senderName}: ${g.sentMessage}`)
+          this.messagesFormatList.push(`${g.dateTime.slice(0, 10).replace(/-/g, '/')}: ${this.senderName}: ${g.sentMessage}`)
         }
         if (g.friendId == this.user.id && g.userId == this.id) {
-          this.messagesFormatList.push(`${g.dateTime}: ${this.recipientName}: ${g.sentMessage}`)
+          this.messagesFormatList.push(`${g.dateTime.slice(0, 10).replace(/-/g, '/')}: ${this.recipientName}: ${g.sentMessage}`)
         }
       }
 
@@ -119,10 +119,10 @@ export class ChatComponent implements OnInit {
         }
         for (let g of this.messages) {
           if (g.userId == this.user.id && g.friendId == this.id) {
-            this.messagesFormatList.push(`${g.dateTime}: ${this.senderName}: ${g.sentMessage}`)
+            this.messagesFormatList.push(`${g.dateTime.slice(0, 10).replace(/-/g, '/')}: ${this.senderName}: ${g.sentMessage}`)
           }
           if (g.friendId == this.user.id && g.userId == this.id) {
-            this.messagesFormatList.push(`${g.dateTime}: ${this.recipientName}: ${g.sentMessage}`)
+            this.messagesFormatList.push(`${g.dateTime.slice(0, 10).replace(/-/g, '/')}: ${this.recipientName}: ${g.sentMessage}`)
           }
         }
         }, err => {
@@ -142,10 +142,10 @@ export class ChatComponent implements OnInit {
         }
         for (let g of this.messages) {
           if (g.userId == this.user.id && g.friendId == this.id) {
-            this.messagesFormatList.push(`${g.dateTime}: ${this.senderName}: ${g.sentMessage}`)
+            this.messagesFormatList.push(`${g.dateTime.slice(0, 10).replace(/-/g, '/')}: ${this.senderName}: ${g.sentMessage}`)
           }
           if (g.friendId == this.user.id && g.userId == this.id) {
-            this.messagesFormatList.push(`${g.dateTime}: ${this.recipientName}: ${g.sentMessage}`)
+            this.messagesFormatList.push(`${g.dateTime.slice(0, 10).replace(/-/g, '/')}: ${this.recipientName}: ${g.sentMessage}`)
           }
         }
         }, err => {
@@ -164,10 +164,10 @@ export class ChatComponent implements OnInit {
       }
       for (let g of this.messages) {
         if (g.userId == this.user.id && g.friendId == this.id) {
-          this.messagesFormatList.push(`${g.dateTime}: ${this.senderName}: ${g.sentMessage}`)
+          this.messagesFormatList.push(`${g.dateTime.slice(0, 10).replace(/-/g, '/')}: ${this.senderName}: ${g.sentMessage}`)
         }
         if (g.friendId == this.user.id && g.userId == this.id) {
-          this.messagesFormatList.push(`${g.dateTime}: ${this.recipientName}: ${g.sentMessage}`)
+          this.messagesFormatList.push(`${g.dateTime.slice(0, 10).replace(/-/g, '/')}: ${this.recipientName}: ${g.sentMessage}`)
         }
       }
       }, err => {

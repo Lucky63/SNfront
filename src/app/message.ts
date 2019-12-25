@@ -5,7 +5,7 @@ export class Message {
     public userId?: number,
     public friendId?: number,
     public sentMessage?: string,
-    public dateTime?:string
+    public dateTime?:Data
   ) { }
 
 }
