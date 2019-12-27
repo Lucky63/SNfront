@@ -18,7 +18,7 @@ export class AddFriendComponent implements OnInit {
   ngOnInit() {
     
     this.dataService.getFriend(this.id)
-      .subscribe(data => this.router.navigateByUrl("/"))
+      .subscribe(data => this.router.navigateByUrl("/allusers"))
 
   }
 

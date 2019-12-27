@@ -3,10 +3,11 @@
     "",
     "\\src",
     "\\src\\app",
+    "\\src\\app\\chat",
     "\\src\\app\\friends-list",
     "\\src\\app\\gallery",
     "\\src\\app\\profile-friend"
   ],
-  "SelectedNode": "\\src\\app\\friends-list\\friends-list.component.html",
+  "SelectedNode": "\\src\\app\\data.service.ts",
   "PreviewInSolutionExplorer": false
 }
