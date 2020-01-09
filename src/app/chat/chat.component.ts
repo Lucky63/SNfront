@@ -91,11 +91,11 @@ export class ChatComponent implements OnInit {
       this.messages = response.messages;
       
       for (let g of this.messages) {
-        if (g.userId == this.user.id && g.friendId == this.id) {
-          this.messagesFormatList.push(`${g.dateTime.slice(0, 10).replace(/-/g, '/')}: ${this.senderName}: ${g.sentMessage}`)
+        if (g.sender == this.user.id && g.recipient == this.id) {
+          this.messagesFormatList.push(`${g.dateSent.slice(0, 10).replace(/-/g, '/')}: ${this.senderName}: ${g.sentMessage}`)
         }
-        if (g.friendId == this.user.id && g.userId == this.id) {
-          this.messagesFormatList.push(`${g.dateTime.slice(0, 10).replace(/-/g, '/')}: ${this.recipientName}: ${g.sentMessage}`)
+        if (g.recipient == this.user.id && g.sender == this.id) {
+          this.messagesFormatList.push(`${g.dateSent.slice(0, 10).replace(/-/g, '/')}: ${this.recipientName}: ${g.sentMessage}`)
         }
       }
 
@@ -118,11 +118,11 @@ export class ChatComponent implements OnInit {
           this.messagesFormatList.pop();
         }
         for (let g of this.messages) {
-          if (g.userId == this.user.id && g.friendId == this.id) {
-            this.messagesFormatList.push(`${g.dateTime.slice(0, 10).replace(/-/g, '/')}: ${this.senderName}: ${g.sentMessage}`)
+          if (g.sender == this.user.id && g.recipient == this.id) {
+            this.messagesFormatList.push(`${g.dateSent.slice(0, 10).replace(/-/g, '/')}: ${this.senderName}: ${g.sentMessage}`)
           }
-          if (g.friendId == this.user.id && g.userId == this.id) {
-            this.messagesFormatList.push(`${g.dateTime.slice(0, 10).replace(/-/g, '/')}: ${this.recipientName}: ${g.sentMessage}`)
+          if (g.recipient == this.user.id && g.sender == this.id) {
+            this.messagesFormatList.push(`${g.dateSent.slice(0, 10).replace(/-/g, '/')}: ${this.recipientName}: ${g.sentMessage}`)
           }
         }
         }, err => {
@@ -141,11 +141,11 @@ export class ChatComponent implements OnInit {
           this.messagesFormatList.pop();
         }
         for (let g of this.messages) {
-          if (g.userId == this.user.id && g.friendId == this.id) {
-            this.messagesFormatList.push(`${g.dateTime.slice(0, 10).replace(/-/g, '/')}: ${this.senderName}: ${g.sentMessage}`)
+          if (g.sender == this.user.id && g.recipient == this.id) {
+            this.messagesFormatList.push(`${g.dateSent.slice(0, 10).replace(/-/g, '/')}: ${this.senderName}: ${g.sentMessage}`)
           }
-          if (g.friendId == this.user.id && g.userId == this.id) {
-            this.messagesFormatList.push(`${g.dateTime.slice(0, 10).replace(/-/g, '/')}: ${this.recipientName}: ${g.sentMessage}`)
+          if (g.recipient == this.user.id && g.sender == this.id) {
+            this.messagesFormatList.push(`${g.dateSent.slice(0, 10).replace(/-/g, '/')}: ${this.recipientName}: ${g.sentMessage}`)
           }
         }
         }, err => {
@@ -163,11 +163,11 @@ export class ChatComponent implements OnInit {
         this.messagesFormatList.pop();
       }
       for (let g of this.messages) {
-        if (g.userId == this.user.id && g.friendId == this.id) {
-          this.messagesFormatList.push(`${g.dateTime.slice(0, 10).replace(/-/g, '/')}: ${this.senderName}: ${g.sentMessage}`)
+        if (g.sender == this.user.id && g.recipient == this.id) {
+          this.messagesFormatList.push(`${g.dateSent.slice(0, 10).replace(/-/g, '/')}: ${this.senderName}: ${g.sentMessage}`)
         }
-        if (g.friendId == this.user.id && g.userId == this.id) {
-          this.messagesFormatList.push(`${g.dateTime.slice(0, 10).replace(/-/g, '/')}: ${this.recipientName}: ${g.sentMessage}`)
+        if (g.recipient == this.user.id && g.sender == this.id) {
+          this.messagesFormatList.push(`${g.dateSent.slice(0, 10).replace(/-/g, '/')}: ${this.recipientName}: ${g.sentMessage}`)
         }
       }
       }, err => {
